@@ -5,8 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LibraryInfoSystemLite_NikolaevDV"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Электронно-библиотечная система. Библиотека. Авторизация" MinHeight="450" MinWidth="800" Height="450" Width="800">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="75"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="55"/>
+        </Grid.RowDefinitions>
+        <Rectangle Fill="Yellow"/>
+        <Rectangle Fill="Orange" Grid.Row="2"/>
+        <Image Source="\Logo/LibraryLogo.jpg" HorizontalAlignment="Left" Height="76" VerticalAlignment="Center" Width="73" Margin="6,0,0,0"/>
+        <Label Content="Вас приветствует электронно-библиотечная система!"  HorizontalAlignment="Left" Margin="160,0,0,0" VerticalAlignment="Center"/>
     </Grid>
 </Window>
