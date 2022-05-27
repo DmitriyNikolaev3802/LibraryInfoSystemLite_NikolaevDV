@@ -15,6 +15,11 @@
         <Rectangle Fill="Yellow"/>
         <Rectangle Fill="Orange" Grid.Row="2"/>
         <Image Source="\Logo/LibraryLogo.jpg" HorizontalAlignment="Left" Height="76" VerticalAlignment="Center" Width="73" Margin="6,0,0,0"/>
-        <Label Content="Вас приветствует электронно-библиотечная система!"  HorizontalAlignment="Left" Margin="160,0,0,0" VerticalAlignment="Center"/>
+        <Label FontWeight="Bold" Content="Вас приветствует электронно-библиотечная система!"  HorizontalAlignment="Left" Margin="226,0,0,0" VerticalAlignment="Center"/>
+        <Label FontWeight="Bold" Content="Логин:" HorizontalAlignment="Left" Margin="285,117,0,0" Grid.Row="1" VerticalAlignment="Top"/>
+        <Label FontWeight="Bold" Content="Пароль:" HorizontalAlignment="Left" Margin="277,145,0,0" Grid.Row="1" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Center" Margin="0,121,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Center" Margin="0,152,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label FontWeight="Bold" Content="Пожалуйста, авторизируйтесь!" HorizontalAlignment="Left" Margin="280,49,0,0" Grid.Row="1" VerticalAlignment="Top"/>
     </Grid>
 </Window>
