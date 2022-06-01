@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="db7ef62c90d9439196063274757bc27c" Name="Diagram1">
+      <Diagram DiagramId="db7ef62c90d9439196063274757bc27c" Name="Diagram1" ZoomLevel="47">
         <EntityTypeShape EntityType="LibraryModel.Book" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
         <EntityTypeShape EntityType="LibraryModel.Genre" Width="1.5" PointX="0.75" PointY="2.5" IsExpanded="true" />
         <EntityTypeShape EntityType="LibraryModel.Language" Width="1.5" PointX="0.75" PointY="5.625" IsExpanded="true" />
@@ -17,6 +17,22 @@
         <AssociationConnector Association="LibraryModel.FK_Book_LanguageTranslation" ManuallyRouted="false" />
         <AssociationConnector Association="LibraryModel.FK_Book_PublicType" ManuallyRouted="false" />
         <AssociationConnector Association="LibraryModel.FK_Book_Readers" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="LibraryModel.Annotation" Width="1.5" PointX="0.75" PointY="21" />
+        <EntityTypeShape EntityType="LibraryModel.Appeals" Width="1.5" PointX="5.375" PointY="8.875" />
+        <EntityTypeShape EntityType="LibraryModel.Author" Width="1.5" PointX="0.75" PointY="18.125" />
+        <EntityTypeShape EntityType="LibraryModel.PublishHouse" Width="1.5" PointX="0.75" PointY="23.375" />
+        <EntityTypeShape EntityType="LibraryModel.Queue" Width="1.5" PointX="9.875" PointY="4.375" />
+        <EntityTypeShape EntityType="LibraryModel.ReadyIssuance" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="LibraryModel.Role" Width="1.5" PointX="5.375" PointY="5.875" />
+        <EntityTypeShape EntityType="LibraryModel.User" Width="1.5" PointX="7.625" PointY="4.875" />
+        <AssociationConnector Association="LibraryModel.FK_Book_Annotation" />
+        <AssociationConnector Association="LibraryModel.FK_User_Appeals" />
+        <AssociationConnector Association="LibraryModel.FK_Book_Author" />
+        <AssociationConnector Association="LibraryModel.FK_Book_PublishHouse" />
+        <AssociationConnector Association="LibraryModel.FK_Book_ReadyIssuance" />
+        <AssociationConnector Association="LibraryModel.FK_Queue_Book" />
+        <AssociationConnector Association="LibraryModel.FK_Queue_User" />
+        <AssociationConnector Association="LibraryModel.FK_User_Role" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
