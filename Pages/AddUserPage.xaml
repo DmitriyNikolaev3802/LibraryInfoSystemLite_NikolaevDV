@@ -18,6 +18,20 @@
         <Rectangle Fill="White" Grid.Row="1"/>
         <Rectangle Fill="Orange" Grid.Row="2"/>
         <Image Source="\Logo/LibraryLogo.jpg" HorizontalAlignment="Left" Height="76" VerticalAlignment="Center" Width="73" Margin="6,0,0,0"/>
-        <Label Content="Добавление пользователя" FontSize="18" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Label Content="Добавить пользователя" FontSize="18" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Button x:Name="btn_AddUser" Content="Добавить" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Center" Height="35" Width="101"/>
+        <TextBox x:Name="tb_Surname" HorizontalAlignment="Left" Margin="165,38,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="174" Height="23"/>
+        <Label Content="Фамилия:" FontSize="14" FontWeight="Bold" HorizontalAlignment="Left" Margin="78,29,0,0" Grid.Row="1" VerticalAlignment="Top" Width="200"/>
+        <TextBox x:Name="tb_Name" HorizontalAlignment="Left" Margin="165,78,0,0" Grid.Row="1" TextWrapping="Wrap"  VerticalAlignment="Top" Width="174" Height="23"/>
+        <Label Content="Имя:" FontSize="14" FontWeight="Bold" HorizontalAlignment="Left" Margin="108,72,0,0" Grid.Row="1" VerticalAlignment="Top" Width="200"/>
+        <TextBox x:Name="tb_Telephone" HorizontalAlignment="Left" Margin="448,78,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="174" Height="23"/>
+        <Label Content="Роль:" FontSize="14" FontWeight="Bold" HorizontalAlignment="Left" Margin="400,113,0,0" Grid.Row="1" VerticalAlignment="Top" Width="200"/>
+        <TextBox x:Name="tb_MiddleName" HorizontalAlignment="Left" Margin="165,116,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="174" Height="23"/>
+        <Label Content="Отчество:" FontSize="14" FontWeight="Bold" HorizontalAlignment="Left" Margin="78,111,0,0" Grid.Row="1" VerticalAlignment="Top" Width="200"/>
+        <TextBox x:Name="tb_Addrees" HorizontalAlignment="Left" Margin="448,38,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="174" Height="23"/>
+        <Label Content="Адрес:" FontSize="14" FontWeight="Bold" HorizontalAlignment="Left" Margin="386,32,0,0" Grid.Row="1" VerticalAlignment="Top" Width="200"/>
+        <ComboBox x:Name="cb_Role" HorizontalAlignment="Left" Margin="448,120,0,0" Grid.Row="1" VerticalAlignment="Top" Width="174"/>
+        <Label Content="Телефон:" FontSize="14" FontWeight="Bold" HorizontalAlignment="Left" Margin="373,72,0,0" Grid.Row="1" VerticalAlignment="Top" Width="200"/>
+        <Button x:Name="btn_Back" Content="Назад" HorizontalAlignment="Left" VerticalAlignment="Center" Height="35" Width="100" Margin="690,0,0,0"/>
     </Grid>
 </Page>
