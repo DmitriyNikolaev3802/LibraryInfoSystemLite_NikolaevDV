@@ -22,5 +22,6 @@
         <Button x:Name="btn_ChangeBook" Content="Изменить" HorizontalAlignment="Left" Margin="132,0,0,0" Grid.Row="2" VerticalAlignment="Center" Height="35" Width="117"/>
         <Button x:Name="btn_DelBook" Content="Удалить" HorizontalAlignment="Left" Margin="665,0,0,0" Grid.Row="2" VerticalAlignment="Center" Width="117" Height="35"/>
         <Button Content="Выйти" HorizontalAlignment="Left" Margin="713,0,0,0" VerticalAlignment="Center" RenderTransformOrigin="0.439,0.07" Width="69" Height="35"/>
+        <Label Content="Список книг" FontSize="18" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
     </Grid>
 </Page>
