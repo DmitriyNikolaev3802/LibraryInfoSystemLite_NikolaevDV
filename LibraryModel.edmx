@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="Хранилище LibraryModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="Хранилище LibraryModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Annotation">
           <Key>
             <PropertyRef Name="AnnotationID" />
@@ -38,10 +38,11 @@
           <Property Name="Annotation" Type="int" Nullable="false" />
           <Property Name="Description" Type="nvarchar" MaxLength="50" />
           <Property Name="Genre" Type="int" Nullable="false" />
+          <Property Name="Quanity" Type="int" />
           <Property Name="Author" Type="int" Nullable="false" />
           <Property Name="PublishHouse" Type="int" Nullable="false" />
           <Property Name="TomeNumber" Type="int" Nullable="false" />
-          <Property Name="TomeQuanity" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="TomeQuanity" Type="int" Nullable="false" />
           <Property Name="PublicType" Type="int" Nullable="false" />
           <Property Name="Language" Type="int" Nullable="false" />
           <Property Name="LanguageTranstation" Type="int" Nullable="false" />
@@ -343,46 +344,68 @@
             <End Role="User" EntitySet="User" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="LibraryModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Annotation">
+          <Key>
+            <PropertyRef Name="AnnotationID" />
+          </Key>
+          <Property Name="AnnotationID" Type="Int32" Nullable="false" />
+          <Property Name="Annotation1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Book" Relationship="Self.FK_Book_Annotation" FromRole="Annotation" ToRole="Book" />
+        </EntityType>
+        <EntityType Name="Appeals">
+          <Key>
+            <PropertyRef Name="AppealsID" />
+          </Key>
+          <Property Name="AppealsID" Type="Int32" Nullable="false" />
+          <Property Name="Appeals1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="User" Relationship="Self.FK_User_Appeals" FromRole="Appeals" ToRole="User" />
+        </EntityType>
+        <EntityType Name="Author">
+          <Key>
+            <PropertyRef Name="AuthorID" />
+          </Key>
+          <Property Name="AuthorID" Type="Int32" Nullable="false" />
+          <Property Name="FIO_Author" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="BirthYear" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Telephone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Book" Relationship="Self.FK_Book_Author" FromRole="Author" ToRole="Book" />
+        </EntityType>
         <EntityType Name="Book">
           <Key>
             <PropertyRef Name="BookID" />
           </Key>
           <Property Name="BookID" Type="Int32" Nullable="false" />
-          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NameBook" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Annotation" Type="Int32" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Genre" Type="Int32" Nullable="false" />
-          <Property Name="Author" Type="String" Nullable="false" />
-          <Property Name="VolumeNumber" Type="Int32" Nullable="false" />
-          <Property Name="VolumeCity" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="VolumeQuanity" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Quanity" Type="Int32" />
+          <Property Name="Author" Type="Int32" Nullable="false" />
+          <Property Name="PublishHouse" Type="Int32" Nullable="false" />
+          <Property Name="TomeNumber" Type="Int32" Nullable="false" />
+          <Property Name="TomeQuanity" Type="Int32" Nullable="false" />
           <Property Name="PublicType" Type="Int32" Nullable="false" />
           <Property Name="Language" Type="Int32" Nullable="false" />
           <Property Name="LanguageTranstation" Type="Int32" Nullable="false" />
-          <Property Name="Editorial" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Redaction" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="ReleaseYear" Type="Int32" Nullable="false" />
-          <Property Name="Readers" Type="Int32" />
+          <Property Name="BookCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ReadyFIssuanse" Type="Int32" />
+          <NavigationProperty Name="Annotation1" Relationship="Self.FK_Book_Annotation" FromRole="Book" ToRole="Annotation" />
+          <NavigationProperty Name="Author1" Relationship="Self.FK_Book_Author" FromRole="Book" ToRole="Author" />
           <NavigationProperty Name="Genre1" Relationship="Self.FK_Book_Genre" FromRole="Book" ToRole="Genre" />
           <NavigationProperty Name="Language1" Relationship="Self.FK_Book_Language" FromRole="Book" ToRole="Language" />
           <NavigationProperty Name="LanguageTranslation" Relationship="Self.FK_Book_LanguageTranslation" FromRole="Book" ToRole="LanguageTranslation" />
           <NavigationProperty Name="PublicType1" Relationship="Self.FK_Book_PublicType" FromRole="Book" ToRole="PublicType" />
-          <NavigationProperty Name="Readers1" Relationship="Self.FK_Book_Readers" FromRole="Book" ToRole="Readers" />
-          <Property Name="NameBook" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Annotation" Type="Int32" Nullable="false" />
-          <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="PublishHouse" Type="Int32" Nullable="false" />
-          <Property Name="TomeNumber" Type="Int32" Nullable="false" />
-          <Property Name="TomeQuanity" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Redaction" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="BookCode" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="ReadyFIssuanse" Type="Int32" />
-          <NavigationProperty Name="Annotation1" Relationship="LibraryModel.FK_Book_Annotation" FromRole="Book" ToRole="Annotation" />
-          <NavigationProperty Name="Author1" Relationship="LibraryModel.FK_Book_Author" FromRole="Book" ToRole="Author" />
-          <NavigationProperty Name="PublishHouse1" Relationship="LibraryModel.FK_Book_PublishHouse" FromRole="Book" ToRole="PublishHouse" />
-          <NavigationProperty Name="ReadyIssuance" Relationship="LibraryModel.FK_Book_ReadyIssuance" FromRole="Book" ToRole="ReadyIssuance" />
-          <NavigationProperty Name="Queue" Relationship="LibraryModel.FK_Queue_Book" FromRole="Book" ToRole="Queue" />
+          <NavigationProperty Name="PublishHouse1" Relationship="Self.FK_Book_PublishHouse" FromRole="Book" ToRole="PublishHouse" />
+          <NavigationProperty Name="ReadyIssuance" Relationship="Self.FK_Book_ReadyIssuance" FromRole="Book" ToRole="ReadyIssuance" />
+          <NavigationProperty Name="Queue" Relationship="Self.FK_Queue_Book" FromRole="Book" ToRole="Queue" />
         </EntityType>
         <EntityType Name="Genre">
           <Key>
@@ -406,8 +429,8 @@
           </Key>
           <Property Name="LanguageTranslationID" Type="Int32" Nullable="false" />
           <Property Name="LanguageTranslation1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="FIO_Translation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Book" Relationship="Self.FK_Book_LanguageTranslation" FromRole="LanguageTranslation" ToRole="Book" />
-          <Property Name="FIO_Translation" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="PublicType">
           <Key>
@@ -417,20 +440,40 @@
           <Property Name="PublicType1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Book" Relationship="Self.FK_Book_PublicType" FromRole="PublicType" ToRole="Book" />
         </EntityType>
-        <EntityType Name="Readers">
+        <EntityType Name="PublishHouse">
           <Key>
-            <PropertyRef Name="ReadersID" />
+            <PropertyRef Name="PublishHouseID" />
           </Key>
-          <Property Name="ReadersID" Type="Int32" Nullable="false" />
-          <Property Name="Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="MiddleName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Addrees" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Tepephone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Appeals" Type="Int32" Nullable="false" />
-          <Property Name="DateExtradition" Type="DateTime" Precision="0" />
-          <Property Name="DateReturn" Type="DateTime" Precision="0" />
-          <NavigationProperty Name="Book" Relationship="Self.FK_Book_Readers" FromRole="Readers" ToRole="Book" />
+          <Property Name="PublishHouseID" Type="Int32" Nullable="false" />
+          <Property Name="PublishHouse1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Book" Relationship="Self.FK_Book_PublishHouse" FromRole="PublishHouse" ToRole="Book" />
+        </EntityType>
+        <EntityType Name="Queue">
+          <Key>
+            <PropertyRef Name="QueueID" />
+          </Key>
+          <Property Name="QueueID" Type="Int32" Nullable="false" />
+          <Property Name="UserID" Type="Int32" />
+          <Property Name="BookID" Type="Int32" />
+          <NavigationProperty Name="Book" Relationship="Self.FK_Queue_Book" FromRole="Queue" ToRole="Book" />
+          <NavigationProperty Name="User" Relationship="Self.FK_Queue_User" FromRole="Queue" ToRole="User" />
+        </EntityType>
+        <EntityType Name="ReadyIssuance">
+          <Key>
+            <PropertyRef Name="ReadyIssuanceID" />
+          </Key>
+          <Property Name="ReadyIssuanceID" Type="Int32" Nullable="false" />
+          <Property Name="ReadyIssuance1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Book" Relationship="Self.FK_Book_ReadyIssuance" FromRole="ReadyIssuance" ToRole="Book" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="RoleID" />
+          </Key>
+          <Property Name="RoleID" Type="Int32" Nullable="false" />
+          <Property Name="Role1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="User" Relationship="Self.FK_User_Role" FromRole="Role" ToRole="User" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -442,6 +485,61 @@
           <Property Name="version" Type="Int32" />
           <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MiddleName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Addrees" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Tepephone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Book" Type="Int32" />
+          <Property Name="Appeals" Type="Int32" Nullable="false" />
+          <Property Name="DateExtradition" Type="DateTime" Precision="0" />
+          <Property Name="DateReturn" Type="DateTime" Precision="0" />
+          <Property Name="RoleID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Appeals1" Relationship="Self.FK_User_Appeals" FromRole="User" ToRole="Appeals" />
+          <NavigationProperty Name="Queue" Relationship="Self.FK_Queue_User" FromRole="User" ToRole="Queue" />
+          <NavigationProperty Name="Role" Relationship="Self.FK_User_Role" FromRole="User" ToRole="Role" />
+        </EntityType>
+        <Association Name="FK_Book_Annotation">
+          <End Role="Annotation" Type="Self.Annotation" Multiplicity="1" />
+          <End Role="Book" Type="Self.Book" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Annotation">
+              <PropertyRef Name="AnnotationID" />
+            </Principal>
+            <Dependent Role="Book">
+              <PropertyRef Name="Annotation" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_Appeals">
+          <End Role="Appeals" Type="Self.Appeals" Multiplicity="1" />
+          <End Role="User" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Appeals">
+              <PropertyRef Name="AppealsID" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="Appeals" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Book_Author">
+          <End Role="Author" Type="Self.Author" Multiplicity="1" />
+          <End Role="Book" Type="Self.Book" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Author">
+              <PropertyRef Name="AuthorID" />
+            </Principal>
+            <Dependent Role="Book">
+              <PropertyRef Name="Author" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Book_Genre">
           <End Role="Genre" Type="Self.Genre" Multiplicity="1" />
           <End Role="Book" Type="Self.Book" Multiplicity="*" />
@@ -455,7 +553,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Book_Language">
-          <End Role="Language" Type="Self.Language" Multiplicity="0..1" />
+          <End Role="Language" Type="Self.Language" Multiplicity="1" />
           <End Role="Book" Type="Self.Book" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Language">
@@ -467,7 +565,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Book_LanguageTranslation">
-          <End Role="LanguageTranslation" Type="Self.LanguageTranslation" Multiplicity="0..1" />
+          <End Role="LanguageTranslation" Type="Self.LanguageTranslation" Multiplicity="1" />
           <End Role="Book" Type="Self.Book" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="LanguageTranslation">
@@ -490,26 +588,93 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Book_Readers">
-          <End Role="Readers" Type="Self.Readers" Multiplicity="0..1" />
+        <Association Name="FK_Book_PublishHouse">
+          <End Role="PublishHouse" Type="Self.PublishHouse" Multiplicity="1" />
           <End Role="Book" Type="Self.Book" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Readers">
-              <PropertyRef Name="ReadersID" />
+            <Principal Role="PublishHouse">
+              <PropertyRef Name="PublishHouseID" />
             </Principal>
             <Dependent Role="Book">
-              <PropertyRef Name="Readers" />
+              <PropertyRef Name="PublishHouse" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="LibraryEntities" annotation:LazyLoadingEnabled="true">
+        <Association Name="FK_Book_ReadyIssuance">
+          <End Role="ReadyIssuance" Type="Self.ReadyIssuance" Multiplicity="0..1" />
+          <End Role="Book" Type="Self.Book" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ReadyIssuance">
+              <PropertyRef Name="ReadyIssuanceID" />
+            </Principal>
+            <Dependent Role="Book">
+              <PropertyRef Name="ReadyFIssuanse" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Queue_Book">
+          <End Role="Book" Type="Self.Book" Multiplicity="0..1" />
+          <End Role="Queue" Type="Self.Queue" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Book">
+              <PropertyRef Name="BookID" />
+            </Principal>
+            <Dependent Role="Queue">
+              <PropertyRef Name="BookID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Queue_User">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Queue" Type="Self.Queue" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Queue">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_Role">
+          <End Role="Role" Type="Self.Role" Multiplicity="1" />
+          <End Role="User" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="RoleID" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="RoleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="LibraryISEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Annotation" EntityType="Self.Annotation" />
+          <EntitySet Name="Appeals" EntityType="Self.Appeals" />
+          <EntitySet Name="Author" EntityType="Self.Author" />
           <EntitySet Name="Book" EntityType="Self.Book" />
           <EntitySet Name="Genre" EntityType="Self.Genre" />
           <EntitySet Name="Language" EntityType="Self.Language" />
           <EntitySet Name="LanguageTranslation" EntityType="Self.LanguageTranslation" />
           <EntitySet Name="PublicType" EntityType="Self.PublicType" />
-          <EntitySet Name="Readers" EntityType="Self.Readers" />
+          <EntitySet Name="PublishHouse" EntityType="Self.PublishHouse" />
+          <EntitySet Name="Queue" EntityType="Self.Queue" />
+          <EntitySet Name="ReadyIssuance" EntityType="Self.ReadyIssuance" />
+          <EntitySet Name="Role" EntityType="Self.Role" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="User" EntityType="Self.User" />
+          <AssociationSet Name="FK_Book_Annotation" Association="Self.FK_Book_Annotation">
+            <End Role="Annotation" EntitySet="Annotation" />
+            <End Role="Book" EntitySet="Book" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_Appeals" Association="Self.FK_User_Appeals">
+            <End Role="Appeals" EntitySet="Appeals" />
+            <End Role="User" EntitySet="User" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Book_Author" Association="Self.FK_Book_Author">
+            <End Role="Author" EntitySet="Author" />
+            <End Role="Book" EntitySet="Book" />
+          </AssociationSet>
           <AssociationSet Name="FK_Book_Genre" Association="Self.FK_Book_Genre">
             <End Role="Genre" EntitySet="Genre" />
             <End Role="Book" EntitySet="Book" />
@@ -526,253 +691,80 @@
             <End Role="PublicType" EntitySet="PublicType" />
             <End Role="Book" EntitySet="Book" />
           </AssociationSet>
-          <AssociationSet Name="FK_Book_Readers" Association="Self.FK_Book_Readers">
-            <End Role="Readers" EntitySet="Readers" />
-            <End Role="Book" EntitySet="Book" />
-          </AssociationSet>
-          <EntitySet Name="Annotation" EntityType="LibraryModel.Annotation" />
-          <EntitySet Name="Appeals" EntityType="LibraryModel.Appeals" />
-          <EntitySet Name="Author" EntityType="LibraryModel.Author" />
-          <EntitySet Name="PublishHouse" EntityType="LibraryModel.PublishHouse" />
-          <EntitySet Name="Queue" EntityType="LibraryModel.Queue" />
-          <EntitySet Name="ReadyIssuance" EntityType="LibraryModel.ReadyIssuance" />
-          <EntitySet Name="Role" EntityType="LibraryModel.Role" />
-          <EntitySet Name="User" EntityType="LibraryModel.User" />
-          <AssociationSet Name="FK_Book_Annotation" Association="LibraryModel.FK_Book_Annotation">
-            <End Role="Annotation" EntitySet="Annotation" />
-            <End Role="Book" EntitySet="Book" />
-          </AssociationSet>
-          <AssociationSet Name="FK_User_Appeals" Association="LibraryModel.FK_User_Appeals">
-            <End Role="Appeals" EntitySet="Appeals" />
-            <End Role="User" EntitySet="User" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Book_Author" Association="LibraryModel.FK_Book_Author">
-            <End Role="Author" EntitySet="Author" />
-            <End Role="Book" EntitySet="Book" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Book_PublishHouse" Association="LibraryModel.FK_Book_PublishHouse">
+          <AssociationSet Name="FK_Book_PublishHouse" Association="Self.FK_Book_PublishHouse">
             <End Role="PublishHouse" EntitySet="PublishHouse" />
             <End Role="Book" EntitySet="Book" />
           </AssociationSet>
-          <AssociationSet Name="FK_Book_ReadyIssuance" Association="LibraryModel.FK_Book_ReadyIssuance">
+          <AssociationSet Name="FK_Book_ReadyIssuance" Association="Self.FK_Book_ReadyIssuance">
             <End Role="ReadyIssuance" EntitySet="ReadyIssuance" />
             <End Role="Book" EntitySet="Book" />
           </AssociationSet>
-          <AssociationSet Name="FK_Queue_Book" Association="LibraryModel.FK_Queue_Book">
+          <AssociationSet Name="FK_Queue_Book" Association="Self.FK_Queue_Book">
             <End Role="Book" EntitySet="Book" />
             <End Role="Queue" EntitySet="Queue" />
           </AssociationSet>
-          <AssociationSet Name="FK_Queue_User" Association="LibraryModel.FK_Queue_User">
+          <AssociationSet Name="FK_Queue_User" Association="Self.FK_Queue_User">
             <End Role="User" EntitySet="User" />
             <End Role="Queue" EntitySet="Queue" />
           </AssociationSet>
-          <AssociationSet Name="FK_User_Role" Association="LibraryModel.FK_User_Role">
+          <AssociationSet Name="FK_User_Role" Association="Self.FK_User_Role">
             <End Role="Role" EntitySet="Role" />
             <End Role="User" EntitySet="User" />
           </AssociationSet>
         </EntityContainer>
-        <EntityType Name="Annotation">
-          <Key>
-            <PropertyRef Name="AnnotationID" />
-          </Key>
-          <Property Name="AnnotationID" Type="Int32" Nullable="false" />
-          <Property Name="Annotation1" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Book" Relationship="LibraryModel.FK_Book_Annotation" FromRole="Annotation" ToRole="Book" />
-        </EntityType>
-        <EntityType Name="Appeals">
-          <Key>
-            <PropertyRef Name="AppealsID" />
-          </Key>
-          <Property Name="AppealsID" Type="Int32" Nullable="false" />
-          <Property Name="Appeals1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="User" Relationship="LibraryModel.FK_User_Appeals" FromRole="Appeals" ToRole="User" />
-        </EntityType>
-        <EntityType Name="Author">
-          <Key>
-            <PropertyRef Name="AuthorID" />
-          </Key>
-          <Property Name="AuthorID" Type="Int32" Nullable="false" />
-          <Property Name="FIO_Author" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="BirthYear" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Telephone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Book" Relationship="LibraryModel.FK_Book_Author" FromRole="Author" ToRole="Book" />
-        </EntityType>
-        <EntityType Name="PublishHouse">
-          <Key>
-            <PropertyRef Name="PublishHouseID" />
-          </Key>
-          <Property Name="PublishHouseID" Type="Int32" Nullable="false" />
-          <Property Name="PublishHouse1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Book" Relationship="LibraryModel.FK_Book_PublishHouse" FromRole="PublishHouse" ToRole="Book" />
-        </EntityType>
-        <EntityType Name="Queue">
-          <Key>
-            <PropertyRef Name="QueueID" />
-          </Key>
-          <Property Name="QueueID" Type="Int32" Nullable="false" />
-          <Property Name="UserID" Type="Int32" />
-          <Property Name="BookID" Type="Int32" />
-          <NavigationProperty Name="Book" Relationship="LibraryModel.FK_Queue_Book" FromRole="Queue" ToRole="Book" />
-          <NavigationProperty Name="User" Relationship="LibraryModel.FK_Queue_User" FromRole="Queue" ToRole="User" />
-        </EntityType>
-        <EntityType Name="ReadyIssuance">
-          <Key>
-            <PropertyRef Name="ReadyIssuanceID" />
-          </Key>
-          <Property Name="ReadyIssuanceID" Type="Int32" Nullable="false" />
-          <Property Name="ReadyIssuance1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Book" Relationship="LibraryModel.FK_Book_ReadyIssuance" FromRole="ReadyIssuance" ToRole="Book" />
-        </EntityType>
-        <EntityType Name="Role">
-          <Key>
-            <PropertyRef Name="RoleID" />
-          </Key>
-          <Property Name="RoleID" Type="Int32" Nullable="false" />
-          <Property Name="Role1" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="User" Relationship="LibraryModel.FK_User_Role" FromRole="Role" ToRole="User" />
-        </EntityType>
-        <EntityType Name="User">
-          <Key>
-            <PropertyRef Name="UserID" />
-          </Key>
-          <Property Name="UserID" Type="Int32" Nullable="false" />
-          <Property Name="Surname" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="MiddleName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Addrees" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Tepephone" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Book" Type="Int32" />
-          <Property Name="Appeals" Type="Int32" Nullable="false" />
-          <Property Name="DateExtradition" Type="DateTime" Precision="0" />
-          <Property Name="DateReturn" Type="DateTime" Precision="0" />
-          <Property Name="RoleID" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Appeals1" Relationship="LibraryModel.FK_User_Appeals" FromRole="User" ToRole="Appeals" />
-          <NavigationProperty Name="Queue" Relationship="LibraryModel.FK_Queue_User" FromRole="User" ToRole="Queue" />
-          <NavigationProperty Name="Role" Relationship="LibraryModel.FK_User_Role" FromRole="User" ToRole="Role" />
-        </EntityType>
-        <Association Name="FK_Book_Annotation">
-          <End Type="LibraryModel.Annotation" Role="Annotation" Multiplicity="1" />
-          <End Type="LibraryModel.Book" Role="Book" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Annotation">
-              <PropertyRef Name="AnnotationID" />
-            </Principal>
-            <Dependent Role="Book">
-              <PropertyRef Name="Annotation" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_User_Appeals">
-          <End Type="LibraryModel.Appeals" Role="Appeals" Multiplicity="1" />
-          <End Type="LibraryModel.User" Role="User" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Appeals">
-              <PropertyRef Name="AppealsID" />
-            </Principal>
-            <Dependent Role="User">
-              <PropertyRef Name="Appeals" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Book_Author">
-          <End Type="LibraryModel.Author" Role="Author" Multiplicity="1" />
-          <End Type="LibraryModel.Book" Role="Book" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Author">
-              <PropertyRef Name="AuthorID" />
-            </Principal>
-            <Dependent Role="Book">
-              <PropertyRef Name="Author" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Book_PublishHouse">
-          <End Type="LibraryModel.PublishHouse" Role="PublishHouse" Multiplicity="1" />
-          <End Type="LibraryModel.Book" Role="Book" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="PublishHouse">
-              <PropertyRef Name="PublishHouseID" />
-            </Principal>
-            <Dependent Role="Book">
-              <PropertyRef Name="PublishHouse" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Book_ReadyIssuance">
-          <End Type="LibraryModel.ReadyIssuance" Role="ReadyIssuance" Multiplicity="0..1" />
-          <End Type="LibraryModel.Book" Role="Book" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="ReadyIssuance">
-              <PropertyRef Name="ReadyIssuanceID" />
-            </Principal>
-            <Dependent Role="Book">
-              <PropertyRef Name="ReadyFIssuanse" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Queue_Book">
-          <End Type="LibraryModel.Book" Role="Book" Multiplicity="0..1" />
-          <End Type="LibraryModel.Queue" Role="Queue" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Book">
-              <PropertyRef Name="BookID" />
-            </Principal>
-            <Dependent Role="Queue">
-              <PropertyRef Name="BookID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Queue_User">
-          <End Type="LibraryModel.User" Role="User" Multiplicity="0..1" />
-          <End Type="LibraryModel.Queue" Role="Queue" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="User">
-              <PropertyRef Name="UserID" />
-            </Principal>
-            <Dependent Role="Queue">
-              <PropertyRef Name="UserID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_User_Role">
-          <End Type="LibraryModel.Role" Role="Role" Multiplicity="1" />
-          <End Type="LibraryModel.User" Role="User" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Role">
-              <PropertyRef Name="RoleID" />
-            </Principal>
-            <Dependent Role="User">
-              <PropertyRef Name="RoleID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Хранилище LibraryModelContainer" CdmEntityContainer="LibraryEntities">
+        <EntityContainerMapping StorageEntityContainer="Хранилище LibraryModelContainer" CdmEntityContainer="LibraryISEntities">
+          <EntitySetMapping Name="Annotation">
+            <EntityTypeMapping TypeName="LibraryModel.Annotation">
+              <MappingFragment StoreEntitySet="Annotation">
+                <ScalarProperty Name="AnnotationID" ColumnName="AnnotationID" />
+                <ScalarProperty Name="Annotation1" ColumnName="Annotation" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Appeals">
+            <EntityTypeMapping TypeName="LibraryModel.Appeals">
+              <MappingFragment StoreEntitySet="Appeals">
+                <ScalarProperty Name="AppealsID" ColumnName="AppealsID" />
+                <ScalarProperty Name="Appeals1" ColumnName="Appeals" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Author">
+            <EntityTypeMapping TypeName="LibraryModel.Author">
+              <MappingFragment StoreEntitySet="Author">
+                <ScalarProperty Name="AuthorID" ColumnName="AuthorID" />
+                <ScalarProperty Name="FIO_Author" ColumnName="FIO_Author" />
+                <ScalarProperty Name="BirthYear" ColumnName="BirthYear" />
+                <ScalarProperty Name="Telephone" ColumnName="Telephone" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Book">
             <EntityTypeMapping TypeName="LibraryModel.Book">
               <MappingFragment StoreEntitySet="Book">
-                <ScalarProperty Name="ReadyFIssuanse" ColumnName="ReadyFIssuanse" />
-                <ScalarProperty Name="BookCode" ColumnName="BookCode" />
-                <ScalarProperty Name="Redaction" ColumnName="Redaction" />
-                <ScalarProperty Name="TomeQuanity" ColumnName="TomeQuanity" />
-                <ScalarProperty Name="TomeNumber" ColumnName="TomeNumber" />
-                <ScalarProperty Name="PublishHouse" ColumnName="PublishHouse" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="Annotation" ColumnName="Annotation" />
-                <ScalarProperty Name="NameBook" ColumnName="NameBook" />
                 <ScalarProperty Name="BookID" ColumnName="BookID" />
+                <ScalarProperty Name="NameBook" ColumnName="NameBook" />
+                <ScalarProperty Name="Annotation" ColumnName="Annotation" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="Genre" ColumnName="Genre" />
+                <ScalarProperty Name="Quanity" ColumnName="Quanity" />
                 <ScalarProperty Name="Author" ColumnName="Author" />
+                <ScalarProperty Name="PublishHouse" ColumnName="PublishHouse" />
+                <ScalarProperty Name="TomeNumber" ColumnName="TomeNumber" />
+                <ScalarProperty Name="TomeQuanity" ColumnName="TomeQuanity" />
                 <ScalarProperty Name="PublicType" ColumnName="PublicType" />
                 <ScalarProperty Name="Language" ColumnName="Language" />
                 <ScalarProperty Name="LanguageTranstation" ColumnName="LanguageTranstation" />
+                <ScalarProperty Name="Redaction" ColumnName="Redaction" />
                 <ScalarProperty Name="ReleaseYear" ColumnName="ReleaseYear" />
+                <ScalarProperty Name="BookCode" ColumnName="BookCode" />
+                <ScalarProperty Name="ReadyFIssuanse" ColumnName="ReadyFIssuanse" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -795,9 +787,9 @@
           <EntitySetMapping Name="LanguageTranslation">
             <EntityTypeMapping TypeName="LibraryModel.LanguageTranslation">
               <MappingFragment StoreEntitySet="LanguageTranslation">
-                <ScalarProperty Name="FIO_Translation" ColumnName="FIO_Translation" />
                 <ScalarProperty Name="LanguageTranslationID" ColumnName="LanguageTranslationID" />
                 <ScalarProperty Name="LanguageTranslation1" ColumnName="LanguageTranslation" />
+                <ScalarProperty Name="FIO_Translation" ColumnName="FIO_Translation" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -806,6 +798,40 @@
               <MappingFragment StoreEntitySet="PublicType">
                 <ScalarProperty Name="PublicTypeID" ColumnName="PublicTypeID" />
                 <ScalarProperty Name="PublicType1" ColumnName="PublicType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PublishHouse">
+            <EntityTypeMapping TypeName="LibraryModel.PublishHouse">
+              <MappingFragment StoreEntitySet="PublishHouse">
+                <ScalarProperty Name="PublishHouseID" ColumnName="PublishHouseID" />
+                <ScalarProperty Name="PublishHouse1" ColumnName="PublishHouse" />
+                <ScalarProperty Name="City" ColumnName="City" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Queue">
+            <EntityTypeMapping TypeName="LibraryModel.Queue">
+              <MappingFragment StoreEntitySet="Queue">
+                <ScalarProperty Name="QueueID" ColumnName="QueueID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="BookID" ColumnName="BookID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ReadyIssuance">
+            <EntityTypeMapping TypeName="LibraryModel.ReadyIssuance">
+              <MappingFragment StoreEntitySet="ReadyIssuance">
+                <ScalarProperty Name="ReadyIssuanceID" ColumnName="ReadyIssuanceID" />
+                <ScalarProperty Name="ReadyIssuance1" ColumnName="ReadyIssuance" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Role">
+            <EntityTypeMapping TypeName="LibraryModel.Role">
+              <MappingFragment StoreEntitySet="Role">
+                <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+                <ScalarProperty Name="Role1" ColumnName="Role" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -820,81 +846,20 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Annotation">
-            <EntityTypeMapping TypeName="LibraryModel.Annotation">
-              <MappingFragment StoreEntitySet="Annotation">
-                <ScalarProperty Name="Annotation1" ColumnName="Annotation" />
-                <ScalarProperty Name="AnnotationID" ColumnName="AnnotationID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Appeals">
-            <EntityTypeMapping TypeName="LibraryModel.Appeals">
-              <MappingFragment StoreEntitySet="Appeals">
-                <ScalarProperty Name="Appeals1" ColumnName="Appeals" />
-                <ScalarProperty Name="AppealsID" ColumnName="AppealsID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Author">
-            <EntityTypeMapping TypeName="LibraryModel.Author">
-              <MappingFragment StoreEntitySet="Author">
-                <ScalarProperty Name="Address" ColumnName="Address" />
-                <ScalarProperty Name="Telephone" ColumnName="Telephone" />
-                <ScalarProperty Name="BirthYear" ColumnName="BirthYear" />
-                <ScalarProperty Name="FIO_Author" ColumnName="FIO_Author" />
-                <ScalarProperty Name="AuthorID" ColumnName="AuthorID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="PublishHouse">
-            <EntityTypeMapping TypeName="LibraryModel.PublishHouse">
-              <MappingFragment StoreEntitySet="PublishHouse">
-                <ScalarProperty Name="City" ColumnName="City" />
-                <ScalarProperty Name="PublishHouse1" ColumnName="PublishHouse" />
-                <ScalarProperty Name="PublishHouseID" ColumnName="PublishHouseID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Queue">
-            <EntityTypeMapping TypeName="LibraryModel.Queue">
-              <MappingFragment StoreEntitySet="Queue">
-                <ScalarProperty Name="BookID" ColumnName="BookID" />
-                <ScalarProperty Name="UserID" ColumnName="UserID" />
-                <ScalarProperty Name="QueueID" ColumnName="QueueID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="ReadyIssuance">
-            <EntityTypeMapping TypeName="LibraryModel.ReadyIssuance">
-              <MappingFragment StoreEntitySet="ReadyIssuance">
-                <ScalarProperty Name="ReadyIssuance1" ColumnName="ReadyIssuance" />
-                <ScalarProperty Name="ReadyIssuanceID" ColumnName="ReadyIssuanceID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Role">
-            <EntityTypeMapping TypeName="LibraryModel.Role">
-              <MappingFragment StoreEntitySet="Role">
-                <ScalarProperty Name="Role1" ColumnName="Role" />
-                <ScalarProperty Name="RoleID" ColumnName="RoleID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="User">
             <EntityTypeMapping TypeName="LibraryModel.User">
               <MappingFragment StoreEntitySet="User">
-                <ScalarProperty Name="RoleID" ColumnName="RoleID" />
-                <ScalarProperty Name="DateReturn" ColumnName="DateReturn" />
-                <ScalarProperty Name="DateExtradition" ColumnName="DateExtradition" />
-                <ScalarProperty Name="Appeals" ColumnName="Appeals" />
-                <ScalarProperty Name="Book" ColumnName="Book" />
-                <ScalarProperty Name="Tepephone" ColumnName="Tepephone" />
-                <ScalarProperty Name="Addrees" ColumnName="Addrees" />
-                <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Surname" ColumnName="Surname" />
                 <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+                <ScalarProperty Name="Addrees" ColumnName="Addrees" />
+                <ScalarProperty Name="Tepephone" ColumnName="Tepephone" />
+                <ScalarProperty Name="Book" ColumnName="Book" />
+                <ScalarProperty Name="Appeals" ColumnName="Appeals" />
+                <ScalarProperty Name="DateExtradition" ColumnName="DateExtradition" />
+                <ScalarProperty Name="DateReturn" ColumnName="DateReturn" />
+                <ScalarProperty Name="RoleID" ColumnName="RoleID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

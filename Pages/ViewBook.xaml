@@ -25,5 +25,6 @@
         <ComboBox HorizontalAlignment="Left" Margin="453,0,0,0" VerticalAlignment="Center" Width="120" Height="35"/>
         <TextBox HorizontalAlignment="Left" Margin="178,0,0,0" TextWrapping="Wrap" VerticalAlignment="Center" Width="270" Height="35"/>
         <Button x:Name="btn_Choice" Content="Выбрать книгу" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="2" VerticalAlignment="Center" Height="35" Width="112"/>
+        <Button x:Name="btn_profile" Content="Профиль" HorizontalAlignment="Left" Margin="94,0,0,0" VerticalAlignment="Center" Width="66" Height="35"/>
     </Grid>
 </Page>

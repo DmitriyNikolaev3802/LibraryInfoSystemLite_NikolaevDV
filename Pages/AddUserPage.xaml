@@ -33,5 +33,9 @@
         <ComboBox x:Name="cb_Role" HorizontalAlignment="Left" Margin="448,120,0,0" Grid.Row="1" VerticalAlignment="Top" Width="174"/>
         <Label Content="Телефон:" FontSize="14" FontWeight="Bold" HorizontalAlignment="Left" Margin="373,72,0,0" Grid.Row="1" VerticalAlignment="Top" Width="200"/>
         <Button x:Name="btn_Back" Content="Назад" HorizontalAlignment="Left" VerticalAlignment="Center" Height="35" Width="100" Margin="690,0,0,0"/>
+        <TextBox x:Name="tb_MiddleName_Copy" HorizontalAlignment="Left" Margin="165,199,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="174" Height="23"/>
+        <Label Content="Логин:" FontSize="14" FontWeight="Bold" HorizontalAlignment="Left" Margin="78,194,0,0" Grid.Row="1" VerticalAlignment="Top" Width="200"/>
+        <TextBox x:Name="tb_MiddleName_Copy1" HorizontalAlignment="Left" Margin="460,201,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="174" Height="23"/>
+        <Label Content="Пароль:" FontSize="14" FontWeight="Bold" HorizontalAlignment="Left" Margin="373,196,0,0" Grid.Row="1" VerticalAlignment="Top" Width="200"/>
     </Grid>
 </Page>
