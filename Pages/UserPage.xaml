@@ -10,19 +10,18 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="75"/>
+            <RowDefinition Height="55"/>
             <RowDefinition Height="1*"/>
             <RowDefinition Height="55"/>
         </Grid.RowDefinitions>
-        <Rectangle Fill="Yellow"/>
+        <Rectangle Fill="White"/>
         <Rectangle Fill="Orange" Grid.Row="2"/>
-        <Image Source="\Logo/LibraryLogo.jpg" HorizontalAlignment="Left" Height="76" VerticalAlignment="Center" Width="73" Margin="6,0,0,0"/>
         <ListBox x:Name="lb_User" Grid.Row="1" d:ItemsSource="{d:SampleData ItemCount=16}"/>
-        <Button x:Name="btn_Back" Content="Назад" HorizontalAlignment="Left" Margin="702,0,0,0" VerticalAlignment="Center" RenderTransformOrigin="0.439,0.07" Width="69" Height="35"/>
+        <Button x:Name="btn_Back" Content="Назад" HorizontalAlignment="Left" Margin="702,0,0,0" VerticalAlignment="Center" RenderTransformOrigin="0.439,0.07" Width="69" Height="35" Click="btn_Back_Click"/>
         <TextBox x:Name="tb_User" HorizontalAlignment="Left" Margin="415,0,0,0" TextWrapping="Wrap" VerticalAlignment="Center" Width="270" Height="35"/>
-        <Button x:Name="btn_AddUser" Content="Добавить пользователя" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="2" VerticalAlignment="Center" Height="35" Width="172"/>
+        <Button x:Name="btn_AddUser" Content="Добавить пользователя" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="2" VerticalAlignment="Center" Height="35" Width="172" Click="btn_AddUser_Click"/>
         <Button x:Name="btn_ChangeUser" Content="Изменить данные пользователя" HorizontalAlignment="Left" Margin="198,0,0,0" Grid.Row="2" VerticalAlignment="Center" Height="35" Width="202"/>
         <Button x:Name="btn_DelUser" Content="Удалить пользователя" HorizontalAlignment="Left" Margin="618,0,0,0" Grid.Row="2" VerticalAlignment="Center" Height="35" Width="172"/>
-        <Label Content="Список читателей" FontSize="18" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="150,0,0,0"/>
+        <Label Content="Список читателей" FontSize="18" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="14,0,0,0"/>
     </Grid>
 </Page>

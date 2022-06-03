@@ -12,6 +12,10 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Data.Entity;
+using LibraryInfoSystemLite_NikolaevDV.Class;
+using LibraryInfoSystemLite_NikolaevDV.Pages;
+
 
 namespace LibraryInfoSystemLite_NikolaevDV
 {
@@ -21,8 +25,23 @@ namespace LibraryInfoSystemLite_NikolaevDV
     public partial class MainWindow : Window
     {
         public MainWindow()
-        {
+        {   
             InitializeComponent();
+           
+        }
+
+
+        private void btnLogin_Click(object sender, RoutedEventArgs e)
+        {
+            User user = DB.db.User.FirstOrDefault(u => u.Login == tbLogin.Text && u.Password == tbPassword.Text);
+            
+            if (user != null)
+            {
+                WindowForPages mainwin = new WindowForPages(user);
+                mainwin.Show();
+                Close();
+            }
+            else MessageBox.Show("Неправильный логин или пароль!", "Внимание", MessageBoxButton.OK, MessageBoxImage.Error);
         }
     }
 }

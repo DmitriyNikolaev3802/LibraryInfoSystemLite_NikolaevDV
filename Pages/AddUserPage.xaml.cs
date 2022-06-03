@@ -20,9 +20,14 @@ namespace LibraryInfoSystemLite_NikolaevDV.Pages
     /// </summary>
     public partial class AddUserPage : Page
     {
-        public AddUserPage()
+        public AddUserPage(User user)
         {
             InitializeComponent();
+        }
+
+        private void btn_Back_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new UserPage(new User()));
         }
     }
 }

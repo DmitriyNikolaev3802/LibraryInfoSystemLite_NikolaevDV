@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using LibraryInfoSystemLite_NikolaevDV;
 
 namespace LibraryInfoSystemLite_NikolaevDV.Pages
 {
@@ -23,6 +24,21 @@ namespace LibraryInfoSystemLite_NikolaevDV.Pages
         public AdministationMenu()
         {
             InitializeComponent();
+        }
+
+        private void btn_openuser_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new UserPage(new User()));
+        }
+
+        private void btn_openbook_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new PageBook(new Book()));
+        }
+
+        private void btn_SetBookToUser_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new SetBookToUserPage());
         }
     }
 }

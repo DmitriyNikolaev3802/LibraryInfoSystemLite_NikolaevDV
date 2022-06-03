@@ -10,14 +10,13 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="75"/>
+            <RowDefinition Height="55"/>
             <RowDefinition Height="1*"/>
             <RowDefinition Height="55"/>
         </Grid.RowDefinitions>
-        <Rectangle Fill="Yellow"/>
+        <Rectangle Fill="White"/>
         <Rectangle Fill="White" Grid.Row="1"/>
         <Rectangle Fill="Orange" Grid.Row="2"/>
-        <Image Source="\Logo/LibraryLogo.jpg" HorizontalAlignment="Left" Height="76" VerticalAlignment="Center" Width="73" Margin="6,0,0,0"/>
         <Label Content="Добавить пользователя" FontSize="18" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         <Button x:Name="btn_AddUser" Content="Добавить" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Center" Height="35" Width="101"/>
         <TextBox x:Name="tb_Surname" HorizontalAlignment="Left" Margin="165,38,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="174" Height="23"/>
@@ -32,7 +31,7 @@
         <Label Content="Адрес:" FontSize="14" FontWeight="Bold" HorizontalAlignment="Left" Margin="386,32,0,0" Grid.Row="1" VerticalAlignment="Top" Width="200"/>
         <ComboBox x:Name="cb_Role" HorizontalAlignment="Left" Margin="448,120,0,0" Grid.Row="1" VerticalAlignment="Top" Width="174"/>
         <Label Content="Телефон:" FontSize="14" FontWeight="Bold" HorizontalAlignment="Left" Margin="373,72,0,0" Grid.Row="1" VerticalAlignment="Top" Width="200"/>
-        <Button x:Name="btn_Back" Content="Назад" HorizontalAlignment="Left" VerticalAlignment="Center" Height="35" Width="100" Margin="690,0,0,0"/>
+        <Button x:Name="btn_Back" Content="Назад" HorizontalAlignment="Left" VerticalAlignment="Center" Height="35" Width="100" Margin="690,0,0,0" Click="btn_Back_Click"/>
         <TextBox x:Name="tb_MiddleName_Copy" HorizontalAlignment="Left" Margin="165,199,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="174" Height="23"/>
         <Label Content="Логин:" FontSize="14" FontWeight="Bold" HorizontalAlignment="Left" Margin="78,194,0,0" Grid.Row="1" VerticalAlignment="Top" Width="200"/>
         <TextBox x:Name="tb_MiddleName_Copy1" HorizontalAlignment="Left" Margin="460,201,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="174" Height="23"/>

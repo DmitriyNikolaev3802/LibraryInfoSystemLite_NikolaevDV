@@ -10,18 +10,17 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="75"/>
+            <RowDefinition Height="55"/>
             <RowDefinition Height="1*"/>
             <RowDefinition Height="55"/>
         </Grid.RowDefinitions>
-        <Rectangle Fill="Yellow"/>
+        <Rectangle Fill="White"/>
         <Rectangle Fill="White" Grid.Row="1"/>
         <Rectangle Fill="Orange" Grid.Row="2"/>
-        <Image Source="\Logo/LibraryLogo.jpg" HorizontalAlignment="Left" Height="76" VerticalAlignment="Center" Width="73" Margin="6,0,0,0"/>
         <Label Content="Выдать книгу" FontSize="18" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         <Button x:Name="btn_AddBookToUser" Content="Выдать" HorizontalAlignment="Center" Grid.Row="1" VerticalAlignment="Top" Height="35" Width="100" Margin="0,208,0,0"/>
         <Label Content="Пользователь:" FontSize="14" FontWeight="Bold" HorizontalAlignment="Left" Margin="196,103,0,0" Grid.Row="1" VerticalAlignment="Top" Width="200"/>
-        <Button x:Name="btn_Back" Content="Назад" HorizontalAlignment="Left" VerticalAlignment="Center" Height="35" Width="100" Margin="690,0,0,0"/>
+        <Button x:Name="btn_Back" Content="Назад" HorizontalAlignment="Left" VerticalAlignment="Center" Height="35" Width="100" Margin="690,0,0,0" Click="btn_Back_Click"/>
         <ComboBox x:Name="cb_SetUser" HorizontalAlignment="Center" Margin="0,108,0,0" Grid.Row="1" VerticalAlignment="Top" Width="174"/>
         <Label Content="Книга:" FontSize="14" FontWeight="Bold" HorizontalAlignment="Left" Margin="252,138,0,0" Grid.Row="1" VerticalAlignment="Top" Width="200"/>
         <ComboBox x:Name="cb_SetBook" HorizontalAlignment="Center" Margin="0,145,0,0" Grid.Row="1" VerticalAlignment="Top" Width="174"/>

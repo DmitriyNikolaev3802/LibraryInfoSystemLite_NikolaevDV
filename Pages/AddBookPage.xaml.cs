@@ -20,9 +20,14 @@ namespace LibraryInfoSystemLite_NikolaevDV.Pages
     /// </summary>
     public partial class AddBookPage : Page
     {
-        public AddBookPage()
+        public AddBookPage(Book book)
         {
             InitializeComponent();
+        }
+
+        private void btn_Back_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new PageBook(new Book()));
         }
     }
 }

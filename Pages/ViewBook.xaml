@@ -10,20 +10,75 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="75"/>
+            <RowDefinition Height="55"/>
             <RowDefinition Height="1*"/>
             <RowDefinition Height="55"/>
         </Grid.RowDefinitions>
-        <Rectangle Fill="Yellow"/>
+        <Rectangle Fill="White"/>
         <Rectangle Fill="Orange" Grid.Row="2"/>
-        <Image Source="\Logo/LibraryLogo.jpg" HorizontalAlignment="Left" Height="76" VerticalAlignment="Center" Width="73" Margin="6,0,0,0"/>
-        <ListBox x:Name="lb_Book" Grid.Row="1" d:ItemsSource="{d:SampleData ItemCount=16}"/>
-        <Button Content="Выйти" HorizontalAlignment="Left" Margin="702,0,0,0" VerticalAlignment="Center" RenderTransformOrigin="0.439,0.07" Width="69" Height="35"/>
-        <ComboBox HorizontalAlignment="Left" Margin="577,0,0,0" VerticalAlignment="Center" Width="120" Height="35">
+        <ListBox x:Name="lb_Book" SelectionMode="Extended" Grid.Row="1" d:ItemsSource="{d:SampleData ItemCount=16}" SelectionChanged="lb_Book_SelectionChanged">
+            <ListBox.ItemContainerStyle>
+                <Style TargetType="ListBoxItem">
+                    <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                    <Setter Property="BorderBrush" Value="Black"/>
+                    <Setter Property="Height" Value="150"/>
+                    <Setter Property="Margin" Value="5"/>
+                    <Setter Property="Background" Value="{Binding CountBrush}"/>
+                </Style>
+            </ListBox.ItemContainerStyle>
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1"/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition Width="150"/>
+                        </Grid.ColumnDefinitions>
+
+
+                        <StackPanel Grid.Column="1" Margin="5" Orientation="Vertical">
+                            <TextBlock FontSize="20" FontWeight="Bold" Text="{Binding NameBook}"/>
+                            <TextBlock>
+                                <Run Text="Описание:"/>
+                                <Run Text="{Binding BookDescription}"/>
+                            </TextBlock>
+                            <TextBlock>
+                                <Run Text="Жанр:"/>
+                                <Run Text="{Binding Genre.Genre}"/>
+                            </TextBlock>
+                            <TextBlock>
+                                <Run Text="Автор:"/>
+                                <Run Text="{Binding Author}"/>
+                            </TextBlock>
+                            <TextBlock>
+                                <Run Text="Язык:"/>
+                                <Run Text="{Binding Language}"/>
+                            </TextBlock>
+                            <TextBlock>
+                                <Run Text="Перевод:"/>
+                                <Run Text="{Binding LanguageTranslation}"/>
+                            </TextBlock>
+                            <TextBlock>
+                                <Run Text="Год:"/>
+                                <Run Text="{Binding Year}"/>
+                            </TextBlock>
+                        </StackPanel>
+
+                        <TextBlock Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center"
+                                   TextAlignment="Center">
+                            <Run Text="Осталось:"/>
+                            <LineBreak/>
+                            <Run Text="{Binding Quanity}" FontSize="25"/>
+                        </TextBlock>
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <ComboBox x:Name="cb_Author" HorizontalAlignment="Left" Margin="577,0,0,0" VerticalAlignment="Center" Width="120" Height="35">
             <ComboBox HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Height="35"/>
         </ComboBox>
-        <ComboBox HorizontalAlignment="Left" Margin="453,0,0,0" VerticalAlignment="Center" Width="120" Height="35"/>
-        <TextBox HorizontalAlignment="Left" Margin="178,0,0,0" TextWrapping="Wrap" VerticalAlignment="Center" Width="270" Height="35"/>
+        <ComboBox x:Name="cb_Genre" HorizontalAlignment="Left" Margin="453,0,0,0" VerticalAlignment="Center" Width="120" Height="35"/>
+        <TextBox x:Name="tb_Finder" HorizontalAlignment="Left" Margin="178,0,0,0" TextWrapping="Wrap" VerticalAlignment="Center" Width="270" Height="35" TextChanged="TextBox_TextChanged"/>
         <Button x:Name="btn_Choice" Content="Выбрать книгу" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="2" VerticalAlignment="Center" Height="35" Width="112"/>
         <Button x:Name="btn_profile" Content="Профиль" HorizontalAlignment="Left" Margin="94,0,0,0" VerticalAlignment="Center" Width="66" Height="35"/>
     </Grid>

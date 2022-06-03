@@ -24,8 +24,10 @@ namespace LibraryInfoSystemLite_NikolaevDV
         public string Surname { get; set; }
         public string Name { get; set; }
         public string MiddleName { get; set; }
+        public string Login { get; set; }
+        public string Password { get; set; }
         public string Addrees { get; set; }
-        public string Tepephone { get; set; }
+        public string Telephone { get; set; }
         public Nullable<int> Book { get; set; }
         public int Appeals { get; set; }
         public Nullable<System.DateTime> DateExtradition { get; set; }

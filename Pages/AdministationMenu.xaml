@@ -10,19 +10,14 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="75"/>
             <RowDefinition Height="1*"/>
             <RowDefinition Height="55"/>
         </Grid.RowDefinitions>
-        <Rectangle Fill="Yellow"/>
-        <Rectangle Fill="White" Grid.Row="1"/>
+        <Rectangle Fill="White"/>
         <Rectangle Fill="Orange" Grid.Row="2"/>
-        <Image Source="\Logo/LibraryLogo.jpg" HorizontalAlignment="Left" Height="76" VerticalAlignment="Center" Width="73" Margin="6,0,0,0"/>
-        <Button x:Name="btn_unlogin" Content="Выйти" HorizontalAlignment="Left" Margin="713,0,0,0" VerticalAlignment="Center" RenderTransformOrigin="0.439,0.07" Width="69" Height="35"/>
-        <Button x:Name="btn_openbook" Content="Список книг" HorizontalAlignment="Center" Margin="0,113,0,0" Grid.Row="1" VerticalAlignment="Top" Height="37" Width="130"/>
-        <Button x:Name="btn_openuser" Content="Список читателей" HorizontalAlignment="Center" Margin="0,155,0,0" Grid.Row="1" VerticalAlignment="Top" Height="41" Width="130"/>
-        <Label FontWeight="Bold" FontSize="18" Content="Меню администратора" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-        <Button x:Name="btn_profile" Content="Профиль" HorizontalAlignment="Left" Margin="84,0,0,0" VerticalAlignment="Center" RenderTransformOrigin="0.439,0.07" Width="100" Height="35">
-        </Button>
+        <Button x:Name="btn_openbook" Content="Список книг" HorizontalAlignment="Center"  VerticalAlignment="Top" Height="37" Width="130" Click="btn_openbook_Click" Margin="0,158,0,0"/>
+        <Button x:Name="btn_openuser" Content="Список читателей" HorizontalAlignment="Center" VerticalAlignment="Top" Height="41" Width="130" Click="btn_openuser_Click" Margin="0,200,0,0"/>
+        <Label FontWeight="Bold" FontSize="18" Content="Меню администратора" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,10,0,0"/>
+        <Button x:Name="btn_SetBookToUser" Content="Выдать книгу" HorizontalAlignment="Center" VerticalAlignment="Top" Height="41" Width="130" Click="btn_SetBookToUser_Click" Margin="0,248,0,0"/>
     </Grid>
 </Page>
