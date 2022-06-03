@@ -22,6 +22,5 @@
         <TextBox x:Name="tbPassword" HorizontalAlignment="Left" Margin="334,130,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="181" Height="24" Grid.Row="1"/>
         <Label FontWeight="Bold" Content="Пожалуйста, авторизируйтесь!" HorizontalAlignment="Left" Margin="290,56,0,0" VerticalAlignment="Top" Height="36" Grid.Row="1"/>
         <Button Content="Войти" HorizontalAlignment="Left" Margin="334,191,0,0" Grid.Row="1" VerticalAlignment="Top" Width="104" Height="31" Click="btnLogin_Click"/>
-        <Frame x:Name="fMain" NavigationUIVisibility="Hidden" Margin="0,0,0,-2" Grid.RowSpan="3"/>
     </Grid>
 </Window>

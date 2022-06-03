@@ -34,5 +34,10 @@ namespace LibraryInfoSystemLite_NikolaevDV.Pages
         {
             NavigationService.Navigate(new AddBookPage(new Book()));
         }
+
+        private void btn_ChangeBook_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new ChangeBookPage());
+        }
     }
 }

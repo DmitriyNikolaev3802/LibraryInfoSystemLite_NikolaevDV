@@ -16,28 +16,18 @@ using System.Windows.Shapes;
 namespace LibraryInfoSystemLite_NikolaevDV.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для UserPage.xaml
+    /// Логика взаимодействия для ChangeBookPage.xaml
     /// </summary>
-    public partial class UserPage : Page
+    public partial class ChangeBookPage : Page
     {
-        public UserPage(User user)
+        public ChangeBookPage()
         {
             InitializeComponent();
         }
 
-        private void btn_AddUser_Click(object sender, RoutedEventArgs e)
-        {
-            NavigationService.Navigate(new AddUserPage(new User()));
-        }
-
         private void btn_Back_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new AdministationMenu());
-        }
-
-        private void btn_ChangeUser_Click(object sender, RoutedEventArgs e)
-        {
-            NavigationService.Navigate(new ChangeUserPage());
+            NavigationService.Navigate(new PageBook(new Book()));
         }
     }
 }

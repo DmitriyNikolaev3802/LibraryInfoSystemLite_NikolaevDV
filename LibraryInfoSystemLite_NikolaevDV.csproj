@@ -113,6 +113,12 @@
     <Compile Include="Pages\AdministationMenu.xaml.cs">
       <DependentUpon>AdministationMenu.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\ChangeBookPage.xaml.cs">
+      <DependentUpon>ChangeBookPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ChangeUserPage.xaml.cs">
+      <DependentUpon>ChangeUserPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\PageBook.xaml.cs">
       <DependentUpon>PageBook.xaml</DependentUpon>
     </Compile>
@@ -173,6 +179,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\AdministationMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\ChangeBookPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\ChangeUserPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
