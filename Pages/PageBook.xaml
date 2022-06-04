@@ -10,13 +10,13 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="55"/>
+            <RowDefinition Height="35"/>
             <RowDefinition Height="1*"/>
             <RowDefinition Height="55"/>
         </Grid.RowDefinitions>
         <Rectangle Fill="White"/>
         <Rectangle Fill="Orange" Grid.Row="2"/>
-        <ListBox x:Name="lb_Book" SelectionMode="Extended" Grid.Row="1" d:ItemsSource="{d:SampleData ItemCount=16}">
+        <ListBox x:Name="lb_Book" SelectionMode="Extended" Grid.Row="1" SelectionChanged="lb_Book_SelectionChanged" >
             <ListBox.ItemContainerStyle>
                 <Style TargetType="ListBoxItem">
                     <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
@@ -40,27 +40,31 @@
                             <TextBlock FontSize="20" FontWeight="Bold" Text="{Binding NameBook}"/>
                             <TextBlock>
                                 <Run Text="Описание:"/>
-                                <Run Text="{Binding BookDescription}"/>
+                                <Run Text="{Binding Description}"/>
                             </TextBlock>
                             <TextBlock>
                                 <Run Text="Жанр:"/>
-                                <Run Text="{Binding Genre.Genre}"/>
+                                <Run Text="{Binding Genre1.Genre1}"/>
                             </TextBlock>
                             <TextBlock>
                                 <Run Text="Автор:"/>
-                                <Run Text="{Binding Author}"/>
+                                <Run Text="{Binding Author1.FIO_Author}"/>
                             </TextBlock>
                             <TextBlock>
                                 <Run Text="Язык:"/>
-                                <Run Text="{Binding Language}"/>
+                                <Run Text="{Binding Language1.Language1}"/>
                             </TextBlock>
                             <TextBlock>
                                 <Run Text="Перевод:"/>
-                                <Run Text="{Binding LanguageTranslation}"/>
+                                <Run Text="{Binding LanguageTranslation.LanguageTranslation1}"/>
                             </TextBlock>
                             <TextBlock>
                                 <Run Text="Год:"/>
-                                <Run Text="{Binding Year}"/>
+                                <Run Text="{Binding ReleaseYear}"/>
+                            </TextBlock>
+                            <TextBlock>
+                                <Run Text="Код:"/>
+                                <Run Text="{Binding BookCode}"/>
                             </TextBlock>
                         </StackPanel>
 
@@ -76,8 +80,8 @@
         </ListBox>
         <Button x:Name="btn_AddBook" Content="Добавить" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="2" VerticalAlignment="Center" Width="117" Height="35" Click="btn_AddBook_Click"/>
         <Button x:Name="btn_ChangeBook" Content="Изменить" HorizontalAlignment="Left" Margin="132,0,0,0" Grid.Row="2" VerticalAlignment="Center" Height="35" Width="117" Click="btn_ChangeBook_Click"/>
-        <Button x:Name="btn_DelBook" Content="Удалить" HorizontalAlignment="Left" Margin="665,0,0,0" Grid.Row="2" VerticalAlignment="Center" Width="117" Height="35"/>
-        <Button x:Name="btn_unlogin" Content="Назад" HorizontalAlignment="Left" Margin="713,0,0,0" VerticalAlignment="Center" RenderTransformOrigin="0.439,0.07" Width="69" Height="35" Click="btn_back_Click"/>
+        <Button x:Name="btn_DelBook" Content="Удалить" HorizontalAlignment="Left" Margin="665,0,0,0" Grid.Row="2" VerticalAlignment="Center" Width="117" Height="35" Click="btn_DelBook_Click"/>
+        <Button x:Name="btn_unlogin" Content="Назад" HorizontalAlignment="Left" Margin="713,0,0,0" VerticalAlignment="Center" RenderTransformOrigin="0.439,0.07" Width="69" Height="25" Click="btn_back_Click"/>
         <Label Content="Список книг" FontSize="18" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
     </Grid>
 </Page>

@@ -17,8 +17,8 @@
         <Rectangle Fill="White"/>
         <Rectangle Fill="White" Grid.Row="1"/>
         <Rectangle Fill="Orange" Grid.Row="2"/>
-        <Label Content="Добавить книгу" FontSize="18" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-        <Button x:Name="btn_AddBook" Content="Добавить" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Center" Height="35" Width="100"/>
+        <Label Content="Изменить книгу&#xD;&#xA;" FontSize="18" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="320,12,0,0" Grid.RowSpan="2"/>
+        <Button x:Name="btn_AddBook" Content="Изменить" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Center" Height="35" Width="100"/>
         <TextBox x:Name="tb_NameBook" HorizontalAlignment="Left" Margin="165,35,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="174" Height="23"/>
         <Label Content="Название книги:" FontSize="14" FontWeight="Bold" HorizontalAlignment="Left" Margin="36,29,0,0" Grid.Row="1" VerticalAlignment="Top" Width="200"/>
         <TextBox x:Name="tb_DescBook" HorizontalAlignment="Left" Margin="165,78,0,0" Grid.Row="1" TextWrapping="Wrap"  VerticalAlignment="Top" Width="174" Height="23"/>

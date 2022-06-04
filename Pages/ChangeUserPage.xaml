@@ -17,8 +17,8 @@
         <Rectangle Fill="White"/>
         <Rectangle Fill="White" Grid.Row="1"/>
         <Rectangle Fill="Orange" Grid.Row="2"/>
-        <Label Content="Добавить пользователя" FontSize="18" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-        <Button x:Name="btn_AddUser" Content="Добавить" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Center" Height="35" Width="101"/>
+        <Label Content="Изменить пользователя" FontSize="18" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Button x:Name="btn_AddUser" Content="Изменить" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Center" Height="35" Width="101"/>
         <TextBox x:Name="tb_Surname" HorizontalAlignment="Left" Margin="165,38,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="174" Height="23"/>
         <Label Content="Фамилия:" FontSize="14" FontWeight="Bold" HorizontalAlignment="Left" Margin="78,29,0,0" Grid.Row="1" VerticalAlignment="Top" Width="200"/>
         <TextBox x:Name="tb_Name" HorizontalAlignment="Left" Margin="165,78,0,0" Grid.Row="1" TextWrapping="Wrap"  VerticalAlignment="Top" Width="174" Height="23"/>

@@ -79,7 +79,9 @@
     <Compile Include="Book.cs">
       <DependentUpon>LibraryModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Class\Author.cs" />
     <Compile Include="Class\DB.cs" />
+    <Compile Include="Class\Genre.cs" />
     <Compile Include="Genre.cs">
       <DependentUpon>LibraryModel.tt</DependentUpon>
     </Compile>

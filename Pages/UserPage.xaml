@@ -10,15 +10,70 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="55"/>
+            <RowDefinition Height="35"/>
             <RowDefinition Height="1*"/>
             <RowDefinition Height="55"/>
         </Grid.RowDefinitions>
         <Rectangle Fill="White"/>
         <Rectangle Fill="Orange" Grid.Row="2"/>
-        <ListBox x:Name="lb_User" Grid.Row="1" d:ItemsSource="{d:SampleData ItemCount=16}"/>
-        <Button x:Name="btn_Back" Content="Назад" HorizontalAlignment="Left" Margin="702,0,0,0" VerticalAlignment="Center" RenderTransformOrigin="0.439,0.07" Width="69" Height="35" Click="btn_Back_Click"/>
-        <TextBox x:Name="tb_User" HorizontalAlignment="Left" Margin="415,0,0,0" TextWrapping="Wrap" VerticalAlignment="Center" Width="270" Height="35"/>
+        <ListBox x:Name="lb_User" SelectionMode="Extended" Grid.Row="1">
+            <ListBox.ItemContainerStyle>
+                <Style TargetType="ListBoxItem">
+                    <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                    <Setter Property="BorderBrush" Value="Black"/>
+                    <Setter Property="Height" Value="150"/>
+                    <Setter Property="Margin" Value="5"/>
+                    <Setter Property="Background" Value="{Binding CountBrush}"/>
+                </Style>
+            </ListBox.ItemContainerStyle>
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1"/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition Width="200"/>
+                        </Grid.ColumnDefinitions>
+                        <StackPanel Grid.Column="1" Margin="5" Orientation="Vertical">
+                            <TextBlock FontSize="14" FontWeight="Bold">
+                                <Run Text="{Binding Surname}"/>
+                                <Run Text="{Binding Name}"/>
+                                <Run Text="{Binding MiddleName}"/>
+                            </TextBlock>
+                            <TextBlock>
+                                <Run Text="Логин:"/>
+                                <Run Text="{Binding Login}"/>
+                            </TextBlock>
+                            <TextBlock>
+                                <Run Text="Адрес:"/>
+                                <Run Text="{Binding Addrees}"/>
+                            </TextBlock>
+                            <TextBlock>
+                                <Run Text="Телефон:"/>
+                                <Run Text="{Binding Telephone}"/>
+                            </TextBlock>
+                            <TextBlock>
+                                <Run Text="Книга:"/>
+                                <Run Text="{Binding Book.NameBook}"/>
+                            </TextBlock>
+                            <TextBlock>
+                                <Run Text="Дата возврата книги:"/>
+                                <Run Text="{Binding DateReturn}"/>
+                            </TextBlock>
+                        </StackPanel>
+
+                        <TextBlock Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center"
+                                   TextAlignment="Center" FontSize="18">
+                            <Run Text="Роль:"/>
+                            <LineBreak/>
+                            <Run Text="{Binding Role.Role1}" FontSize="14"/>
+                        </TextBlock>
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <Button x:Name="btn_Back" Content="Назад" HorizontalAlignment="Left" Margin="702,0,0,0" VerticalAlignment="Center" RenderTransformOrigin="0.439,0.07" Width="69" Height="25" Click="btn_Back_Click"/>
+        <TextBox x:Name="tb_User" HorizontalAlignment="Left" Margin="312,0,0,0" TextWrapping="Wrap" VerticalAlignment="Center" Width="373" Height="25" TextChanged="tb_User_TextChanged"/>
         <Button x:Name="btn_AddUser" Content="Добавить пользователя" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="2" VerticalAlignment="Center" Height="35" Width="172" Click="btn_AddUser_Click"/>
         <Button x:Name="btn_ChangeUser" Content="Изменить данные пользователя" HorizontalAlignment="Left" Margin="198,0,0,0" Grid.Row="2" VerticalAlignment="Center" Height="35" Width="202" Click="btn_ChangeUser_Click"/>
         <Button x:Name="btn_DelUser" Content="Удалить пользователя" HorizontalAlignment="Left" Margin="618,0,0,0" Grid.Row="2" VerticalAlignment="Center" Height="35" Width="172"/>

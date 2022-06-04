@@ -21,73 +21,98 @@ namespace LibraryInfoSystemLite_NikolaevDV.Pages
     /// </summary>
     public partial class ViewBook : Page
     {
-        public ViewBook()
+        private Book _book;
+        public ViewBook(Book book)
         {
             InitializeComponent();
+            _book = book;
+            lb_Book.ItemsSource = DB.db.Book.ToList();
+            GenreFilterList();
+            AuthorFilterList();
+            ShowLbElements();
         }
 
-        private void lb_Book_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            DB.db.Book.ToList();
-        }
-
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
 
         private void ShowLbElements()
         {
             List<Book> books = GetBook();
+            cb_Genre.ItemsSource = books;
+            cb_Author.ItemsSource = books;
+        }
+
+        private void tb_Finder_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            List<Book> books = GetBook();
             lb_Book.ItemsSource = books;
-            //ShowCountFindedProducts(books);
         }
-
-        
-
-        private List<Book> FindProducts(List<Book> books)
-        {
-            books = books.Where(p =>
-                p.NameBook.ToLower().Contains(tb_Finder.Text.ToLower()) ||
-                p.Description.ToLower().Contains(tb_Finder.Text.ToLower())).ToList();
-
-            return books;
-        }
-
-        private List<Book> Genre(List<Book> books)
-        {
-            switch (cb_Genre.SelectedIndex)
-            {
-               //case 1: products = products.OrderBy(p => p.ProductCost).ToList(); break;
-                //case 2: products = products.OrderByDescending(p => p.ProductCost).ToList(); break;
-            }
-
-            return books;
-        }
-
-        private List<Book> Author(List<Book> books)
-        {
-            string Genre = cb_Author.SelectedItem.ToString();
-            //products = products.Where(p => p.Supplier.Name == supplier).ToList();
-
-            return books;
-        }
-
 
         private List<Book> GetBook()
         {
             List<Book> books = DB.db.Book.ToList();
-
             if (!String.IsNullOrEmpty(tb_Finder.Text) && !String.IsNullOrWhiteSpace(tb_Finder.Text))
-                books = FindProducts(books);
-
+                books = FindBook(books);
             if (cb_Genre.SelectedIndex > 0)
-                books = Genre(books);
-
+                books = GenreFilt(books);
             if (cb_Author.SelectedIndex > 0)
-                books = Author(books);
+                books = AuthorFilt(books);
+            return books;
+        }
+
+        private List<Book> GenreFilt(List<Book> books)
+        {   
+            string genrefilt = cb_Genre.SelectedItem.ToString();
+           // books = books.Where(p => p.Genre1 = genrefilt).ToList();
 
             return books;
+        }
+
+        private List<Book> AuthorFilt(List<Book> books)
+        {
+            string authorfilt = cb_Author.SelectedItem.ToString();
+           // books = books.Where(p => p.Author1 = authorfilt).ToList();
+
+            return books;
+        }
+
+
+        private List<Book> FindBook(List<Book> books)
+        {
+            books = books.Where(p =>
+                p.NameBook.ToLower().Contains(tb_Finder.Text.ToLower()) ||
+                p.Redaction.ToLower().Contains(tb_Finder.Text.ToLower()) ||
+                p.BookCode.ToLower().Contains(tb_Finder.Text.ToLower())).ToList();
+
+            return books;
+        }
+
+        private void GenreFilterList()
+        {
+            cb_Genre.Items.Add("< Выберите жанр >");
+
+            foreach (var genre in DB.db.Genre)
+                cb_Genre.Items.Add(genre);
+
+            cb_Genre.SelectedIndex = 0;
+        }
+
+        private void AuthorFilterList()
+        {
+            cb_Author.Items.Add("< Выберите автора >");
+
+            foreach (var author in DB.db.Author)
+                cb_Author.Items.Add(author);
+
+            cb_Author.SelectedIndex = 0;
+        }
+
+        private void cb_Genre_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            GetBook();
+        }
+
+        private void cb_Author_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            GetBook();
         }
     }
 }

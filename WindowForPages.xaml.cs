@@ -32,7 +32,7 @@ namespace LibraryInfoSystemLite_NikolaevDV
             switch (user.RoleID)
             {
                 case 1:
-                    fMain.Navigate(new ViewBook());
+                    fMain.Navigate(new ViewBook(new Book()));
                     break;
                 case 2:
                     fMain.Navigate(new AdministationMenu());

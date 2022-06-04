@@ -20,9 +20,11 @@ namespace LibraryInfoSystemLite_NikolaevDV.Pages
     /// </summary>
     public partial class ChangeBookPage : Page
     {
+        Book book;
         public ChangeBookPage()
         {
             InitializeComponent();
+            DataContext = book;
         }
 
         private void btn_Back_Click(object sender, RoutedEventArgs e)
