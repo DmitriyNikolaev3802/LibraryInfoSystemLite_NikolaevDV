@@ -79,5 +79,10 @@ namespace LibraryInfoSystemLite_NikolaevDV.Pages
 
             return users;
         }
+
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            DB.db.ChangeTracker.Entries().ToList().ForEach(x => x.Reload());
+        }
     }
 }

@@ -49,12 +49,8 @@ namespace LibraryInfoSystemLite_NikolaevDV.Pages
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
+            DB.db.ChangeTracker.Entries().ToList().ForEach(x => x.Reload());
             lb_Book.ItemsSource = DB.db.Book.ToList();
-        }
-
-        private void lb_Book_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            //lb_Book.SelectedItem != null ? true : false;
         }
 
         private void tb_FindBook_TextChanged(object sender, TextChangedEventArgs e)

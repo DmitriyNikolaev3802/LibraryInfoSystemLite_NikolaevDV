@@ -29,22 +29,26 @@ namespace LibraryInfoSystemLite_NikolaevDV.Pages
             lb_Book.ItemsSource = DB.db.Book.ToList();
             GenreFilterList();
             AuthorFilterList();
-            ShowLbElements();
+            //ShowLbElements();
         }
 
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            DB.db.ChangeTracker.Entries().ToList().ForEach(x => x.Reload());
+            //ShowLbElements();
+        }
 
-        /*private void ShowLbElements()
+        private void ShowLbElements()
         {
             List<Book> books = GetBook();
             cb_Genre.ItemsSource = books;
             cb_Author.ItemsSource = books;
-        }*/
+        }
 
         private void tb_Finder_TextChanged(object sender, TextChangedEventArgs e)
         {
-            //List<Book> books = GetBook();
-            //lb_Book.ItemsSource = books;
-            ShowLbElements();
+            List<Book> books = GetBook();
+            lb_Book.ItemsSource = books;
         }
 
         private List<Book> GetBook()
@@ -59,11 +63,11 @@ namespace LibraryInfoSystemLite_NikolaevDV.Pages
             return books;
         }
 
-        private void ShowLbElements()
+        /*private void ShowLbElements()
         {
             List<Book> books = GetBook();
             lb_Book.ItemsSource = books;
-        }
+        }*/
 
         private List<Book> GenreFilt(List<Book> books)
         {   
@@ -112,14 +116,25 @@ namespace LibraryInfoSystemLite_NikolaevDV.Pages
             cb_Author.SelectedIndex = 0;
         }
 
+        /*private void ShowLbElements()
+        {
+            List<Book> books = GetBook();
+            lb_Book.ItemsSource = books;
+        }*/
+
         private void cb_Genre_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            ShowLbElements();
+            //ShowLbElements();
         }
 
         private void cb_Author_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            ShowLbElements();
+            //ShowLbElements();
+        }
+
+        private void btn_Choice_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show(messageBoxText: "Вы запросили книгу, поздравляем! Для её получения обратитесь в библиотеку в любое время.");   
         }
     }
 }

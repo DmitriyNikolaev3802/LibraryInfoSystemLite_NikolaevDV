@@ -78,11 +78,11 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <ComboBox x:Name="cb_Author" HorizontalAlignment="Left" Margin="638,10,0,0" VerticalAlignment="Top" Width="120" Height="20" SelectionChanged="cb_Author_SelectionChanged"/>
-        <ComboBox x:Name="cb_Genre" HorizontalAlignment="Left" Margin="514,10,0,0" VerticalAlignment="Top" Width="120" Height="20" SelectionChanged="cb_Genre_SelectionChanged"/>
+        <ComboBox x:Name="cb_Author" HorizontalAlignment="Left" Margin="638,0,0,0" VerticalAlignment="Center" Width="120" Height="20" SelectionChanged="cb_Author_SelectionChanged"/>
+        <ComboBox x:Name="cb_Genre" HorizontalAlignment="Left" Margin="514,0,0,0" VerticalAlignment="Center" Width="120" Height="20" SelectionChanged="cb_Genre_SelectionChanged"/>
         <TextBox x:Name="tb_Finder" HorizontalAlignment="Center" Margin="0,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="220" Height="20" TextChanged="tb_Finder_TextChanged"/>
-        <Button x:Name="btn_Choice" Content="Запросить книгу" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="2" VerticalAlignment="Center" Height="35" Width="112" Grid.ColumnSpan="2"/>
+        <Button x:Name="btn_Choice" Content="Запросить книгу" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="2" VerticalAlignment="Center" Height="35" Width="112" Grid.ColumnSpan="2" Click="btn_Choice_Click"/>
         <Label Content="Список  доступных книг&#xD;&#xA;" FontWeight="Bold" FontSize="14" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Center" Grid.ColumnSpan="2" Width="219"/>
-        <Label Content="Или обратитесь в библиотеку :)" FontWeight="Bold" FontSize="18" HorizontalAlignment="Left" Margin="44,0,0,0" Grid.Row="2" VerticalAlignment="Center" Grid.Column="1"/>
+        <Label Content="Или обратитесь в библиотеку :)" FontWeight="Bold" FontSize="18" HorizontalAlignment="Left" Margin="137,0,0,0" Grid.Row="2" VerticalAlignment="Center"/>
     </Grid>
 </Page>

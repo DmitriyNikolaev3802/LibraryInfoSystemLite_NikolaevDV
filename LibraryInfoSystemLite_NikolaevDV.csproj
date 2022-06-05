@@ -82,6 +82,7 @@
     <Compile Include="Class\Annotation.cs" />
     <Compile Include="Class\Appeals.cs" />
     <Compile Include="Class\Author.cs" />
+    <Compile Include="Class\CurrentUser.cs" />
     <Compile Include="Class\DB.cs" />
     <Compile Include="Class\Genre.cs" />
     <Compile Include="Class\Language.cs" />
@@ -247,6 +248,7 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <Resource Include="Images\profile_background.png" />
     <Content Include="LibraryModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>LibraryModel.edmx</DependentUpon>

@@ -49,7 +49,7 @@ namespace LibraryInfoSystemLite_NikolaevDV
 
         private void Button_Profile_Click(object sender, RoutedEventArgs e)
         {
-            fMain.Navigate(new UserProfile());
+            fMain.Navigate(new UserProfile(user));
         }
     }
 }

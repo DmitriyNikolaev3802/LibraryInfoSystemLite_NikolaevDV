@@ -23,17 +23,28 @@
         <Label Content="Отчество:" FontSize="14" FontWeight="Bold" HorizontalAlignment="Left" Margin="123,72,0,0" Grid.Row="1" VerticalAlignment="Top" Width="200"/>
         <Label Content="Адрес:" FontSize="14" FontWeight="Bold" HorizontalAlignment="Left" Margin="414,8,0,0" Grid.Row="1" VerticalAlignment="Top" Width="200"/>
         <Label Content="Телефон:" FontSize="14" FontWeight="Bold" HorizontalAlignment="Left" Margin="398,43,0,0" Grid.Row="1" VerticalAlignment="Top" Width="200"/>
-        <Label Content="Label" HorizontalAlignment="Left" Margin="209,77,0,0" Grid.Row="1" VerticalAlignment="Top" Width="205"/>
-        <Label Content="Label" HorizontalAlignment="Left" Margin="482,43,0,0" Grid.Row="1" VerticalAlignment="Top" Width="186"/>
-        <Label Content="Label" HorizontalAlignment="Left" Margin="211,11,0,0" Grid.Row="1" VerticalAlignment="Top" Width="189"/>
-        <Label Content="Label" HorizontalAlignment="Left" Margin="209,45,0,0" Grid.Row="1" VerticalAlignment="Top" Width="189"/>
-        <Label Content="Label" HorizontalAlignment="Left" Margin="482,10,0,0" Grid.Row="1" VerticalAlignment="Top" Width="204"/>
+        <Label x:Name="label_O" Content="{Binding MiddleName}" FontSize="14" HorizontalAlignment="Left" Margin="204,74,0,0" Grid.Row="1" VerticalAlignment="Top" Width="195" Height="28"/>
+        <Label x:Name="label_Telephone" Content="{Binding Telephone}" FontSize="14" HorizontalAlignment="Left" Margin="482,43,0,0" Grid.Row="1" VerticalAlignment="Top" Width="186" Height="29"/>
+        <Label x:Name="label_F" Content="{Binding Surname}" FontSize="14" HorizontalAlignment="Left" Margin="204,13,0,0" Grid.Row="1" VerticalAlignment="Top" Width="189" Height="27"/>
+        <Label x:Name="label_I" Content="{Binding Name}" FontSize="14" HorizontalAlignment="Left" Margin="204,41,0,0" Grid.Row="1" VerticalAlignment="Top" Width="189" Height="30"/>
+        <Label x:Name="label_Addrees" Content="{Binding Addrees}" FontSize="14" HorizontalAlignment="Left" Margin="480,12,0,0" Grid.Row="1" VerticalAlignment="Top" Width="310" Height="28"/>
         <Label Content="Книга:" FontSize="14" FontWeight="Bold" HorizontalAlignment="Left" Margin="415,72,0,0" Grid.Row="1" VerticalAlignment="Top" Width="200"/>
-        <Label Content="Label" HorizontalAlignment="Left" Margin="482,77,0,0" Grid.Row="1" VerticalAlignment="Top" Width="205"/>
-        <Label Content="Дата возврата:" FontSize="14" FontWeight="Bold" HorizontalAlignment="Left" Margin="230,121,0,0" Grid.Row="1" VerticalAlignment="Top" Width="200"/>
-        <Label Content="Дфиуд" HorizontalAlignment="Left" Margin="347,124,0,0" Grid.Row="1" VerticalAlignment="Top" Width="204"/>
+        <Label x:Name="label_Book" Content="{Binding Book1.NameBook}" FontSize="14" HorizontalAlignment="Left" Margin="479,75,0,0" Grid.Row="1" VerticalAlignment="Top" Width="311" Height="27"/>
+        <Label Content="Дата возврата:" FontSize="14" FontWeight="Bold" HorizontalAlignment="Left" Margin="230,121,0,0" Grid.Row="1" VerticalAlignment="Top" Width="117"/>
+        <Label x:Name="label_DateRet" Content="{Binding DateReturn}" FontSize="14" HorizontalAlignment="Left" Margin="347,123,0,0" Grid.Row="1" VerticalAlignment="Top" Width="204" Height="25"/>
         <Label Content="Ваша роль:" FontSize="14" FontWeight="Bold" HorizontalAlignment="Left" Margin="256,150,0,0" Grid.Row="1" VerticalAlignment="Top" Width="200"/>
-        <Label Content="Label" HorizontalAlignment="Left" Margin="347,151,0,0" Grid.Row="1" VerticalAlignment="Top" Width="204"/>
+        <Label x:Name="label_Role" Content="{Binding Role}" FontSize="14" HorizontalAlignment="Left" Margin="347,155,0,0" Grid.Row="1" VerticalAlignment="Top" Width="204" Height="28"/>
         <Button x:Name="btn_Back" Content="Назад" HorizontalAlignment="Left" Margin="688,0,0,0" VerticalAlignment="Center" Width="72" Height="25" Click="btn_Back_Click"/>
+        <Label Content="" HorizontalAlignment="Left" Margin="414,0,0,0" Grid.Row="2" VerticalAlignment="Center"/>
+        <Image Source="\Images\profile_background.png" HorizontalAlignment="Left" Height="265" Margin="516,92,0,0" Grid.Row="1" VerticalAlignment="Top" Width="264" RenderTransformOrigin="0.5,0.5">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-36.213"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
     </Grid>
 </Page>

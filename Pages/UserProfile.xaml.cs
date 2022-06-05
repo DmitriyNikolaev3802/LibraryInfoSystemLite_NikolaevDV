@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using LibraryInfoSystemLite_NikolaevDV.Class;
 
 namespace LibraryInfoSystemLite_NikolaevDV.Pages
 {
@@ -20,9 +21,13 @@ namespace LibraryInfoSystemLite_NikolaevDV.Pages
     /// </summary>
     public partial class UserProfile : Page
     {
-        public UserProfile()
+        private User _user;
+        public UserProfile(User user)
         {
+            this._user = user;
             InitializeComponent();
+            _user = user;
+            DataContext = _user;
         }
 
         private void btn_Back_Click(object sender, RoutedEventArgs e)

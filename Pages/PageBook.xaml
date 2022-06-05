@@ -16,7 +16,7 @@
         </Grid.RowDefinitions>
         <Rectangle Fill="White"/>
         <Rectangle Fill="Orange" Grid.Row="2"/>
-        <ListBox x:Name="lb_Book" SelectionMode="Extended" Grid.Row="1" SelectionChanged="lb_Book_SelectionChanged" >
+        <ListBox x:Name="lb_Book" SelectionMode="Extended" Grid.Row="1">
             <ListBox.ItemContainerStyle>
                 <Style TargetType="ListBoxItem">
                     <Setter Property="HorizontalContentAlignment" Value="Stretch"/>

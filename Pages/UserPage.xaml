@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:LibraryInfoSystemLite_NikolaevDV.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="UserPage">
+      Title="UserPage" Loaded="Page_Loaded">
 
     <Grid>
         <Grid.RowDefinitions>
@@ -54,7 +54,7 @@
                             </TextBlock>
                             <TextBlock>
                                 <Run Text="Книга:"/>
-                                <Run Text="{Binding Book.NameBook}"/>
+                                <Run Text="{Binding Book1.NameBook}"/>
                             </TextBlock>
                             <TextBlock>
                                 <Run Text="Дата возврата книги:"/>

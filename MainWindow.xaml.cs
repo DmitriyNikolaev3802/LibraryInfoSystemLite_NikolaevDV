@@ -37,6 +37,7 @@ namespace LibraryInfoSystemLite_NikolaevDV
             
             if (user != null)
             {
+                CurrentUser.User = user;
                 WindowForPages mainwin = new WindowForPages(user);
                 mainwin.Show();
                 Close();
