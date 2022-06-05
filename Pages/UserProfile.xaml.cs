@@ -24,5 +24,10 @@ namespace LibraryInfoSystemLite_NikolaevDV.Pages
         {
             InitializeComponent();
         }
+
+        private void btn_Back_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.GoBack();
+        }
     }
 }

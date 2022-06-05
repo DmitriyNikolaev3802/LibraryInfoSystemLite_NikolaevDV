@@ -10,25 +10,30 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="75"/>
+            <RowDefinition Height="35"/>
             <RowDefinition Height="1*"/>
             <RowDefinition Height="55"/>
         </Grid.RowDefinitions>
-        <Rectangle Fill="Yellow"/>
+        <Rectangle Fill="White"/>
         <Rectangle Fill="White" Grid.Row="1"/>
         <Rectangle Fill="Orange" Grid.Row="2"/>
-        <Image Source="\Logo/LibraryLogo.jpg" HorizontalAlignment="Left" Height="76" VerticalAlignment="Center" Width="73" Margin="6,0,0,0"/>
-        <Label Content="Профиль" FontSize="18" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-        <Label Content="Фамилия:" FontSize="14" FontWeight="Bold" HorizontalAlignment="Left" Margin="141,89,0,0" Grid.Row="1" VerticalAlignment="Top" Width="200"/>
-        <Label Content="Имя:" FontSize="14" FontWeight="Bold" HorizontalAlignment="Left" Margin="171,133,0,0" Grid.Row="1" VerticalAlignment="Top" Width="200"/>
-        <Label Content="Отчество:" FontSize="14" FontWeight="Bold" HorizontalAlignment="Left" Margin="141,171,0,0" Grid.Row="1" VerticalAlignment="Top" Width="200"/>
-        <Label Content="Адрес:" FontSize="14" FontWeight="Bold" HorizontalAlignment="Left" Margin="449,93,0,0" Grid.Row="1" VerticalAlignment="Top" Width="200"/>
-        <Label Content="Телефон:" FontSize="14" FontWeight="Bold" HorizontalAlignment="Left" Margin="436,133,0,0" Grid.Row="1" VerticalAlignment="Top" Width="200"/>
-        <Button x:Name="btn_Back" Content="Назад" HorizontalAlignment="Left" VerticalAlignment="Center" Height="35" Width="100" Margin="690,0,0,0"/>
-        <Label Content="Label" HorizontalAlignment="Left" Margin="222,171,0,0" Grid.Row="1" VerticalAlignment="Top" Width="205"/>
-        <Label Content="Label" HorizontalAlignment="Left" Margin="517,132,0,0" Grid.Row="1" VerticalAlignment="Top" Width="186"/>
-        <Label Content="Label" HorizontalAlignment="Left" Margin="222,91,0,0" Grid.Row="1" VerticalAlignment="Top" Width="189"/>
-        <Label Content="Label" HorizontalAlignment="Left" Margin="222,133,0,0" Grid.Row="1" VerticalAlignment="Top" Width="189"/>
-        <Label Content="Label" HorizontalAlignment="Left" Margin="511,93,0,0" Grid.Row="1" VerticalAlignment="Top" Width="204"/>
+        <Label Content="Ваш профиль" FontSize="18" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="312,0,0,0"/>
+        <Label Content="Фамилия:" FontSize="14" FontWeight="Bold" HorizontalAlignment="Left" Margin="123,10,0,0" Grid.Row="1" VerticalAlignment="Top" Width="200"/>
+        <Label Content="Имя:" FontSize="14" FontWeight="Bold" HorizontalAlignment="Left" Margin="156,40,0,0" Grid.Row="1" VerticalAlignment="Top" Width="200"/>
+        <Label Content="Отчество:" FontSize="14" FontWeight="Bold" HorizontalAlignment="Left" Margin="123,72,0,0" Grid.Row="1" VerticalAlignment="Top" Width="200"/>
+        <Label Content="Адрес:" FontSize="14" FontWeight="Bold" HorizontalAlignment="Left" Margin="414,8,0,0" Grid.Row="1" VerticalAlignment="Top" Width="200"/>
+        <Label Content="Телефон:" FontSize="14" FontWeight="Bold" HorizontalAlignment="Left" Margin="398,43,0,0" Grid.Row="1" VerticalAlignment="Top" Width="200"/>
+        <Label Content="Label" HorizontalAlignment="Left" Margin="209,77,0,0" Grid.Row="1" VerticalAlignment="Top" Width="205"/>
+        <Label Content="Label" HorizontalAlignment="Left" Margin="482,43,0,0" Grid.Row="1" VerticalAlignment="Top" Width="186"/>
+        <Label Content="Label" HorizontalAlignment="Left" Margin="211,11,0,0" Grid.Row="1" VerticalAlignment="Top" Width="189"/>
+        <Label Content="Label" HorizontalAlignment="Left" Margin="209,45,0,0" Grid.Row="1" VerticalAlignment="Top" Width="189"/>
+        <Label Content="Label" HorizontalAlignment="Left" Margin="482,10,0,0" Grid.Row="1" VerticalAlignment="Top" Width="204"/>
+        <Label Content="Книга:" FontSize="14" FontWeight="Bold" HorizontalAlignment="Left" Margin="415,72,0,0" Grid.Row="1" VerticalAlignment="Top" Width="200"/>
+        <Label Content="Label" HorizontalAlignment="Left" Margin="482,77,0,0" Grid.Row="1" VerticalAlignment="Top" Width="205"/>
+        <Label Content="Дата возврата:" FontSize="14" FontWeight="Bold" HorizontalAlignment="Left" Margin="230,121,0,0" Grid.Row="1" VerticalAlignment="Top" Width="200"/>
+        <Label Content="Дфиуд" HorizontalAlignment="Left" Margin="347,124,0,0" Grid.Row="1" VerticalAlignment="Top" Width="204"/>
+        <Label Content="Ваша роль:" FontSize="14" FontWeight="Bold" HorizontalAlignment="Left" Margin="256,150,0,0" Grid.Row="1" VerticalAlignment="Top" Width="200"/>
+        <Label Content="Label" HorizontalAlignment="Left" Margin="347,151,0,0" Grid.Row="1" VerticalAlignment="Top" Width="204"/>
+        <Button x:Name="btn_Back" Content="Назад" HorizontalAlignment="Left" Margin="688,0,0,0" VerticalAlignment="Center" Width="72" Height="25" Click="btn_Back_Click"/>
     </Grid>
 </Page>

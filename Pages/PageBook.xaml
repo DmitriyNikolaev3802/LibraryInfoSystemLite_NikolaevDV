@@ -78,10 +78,10 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <Button x:Name="btn_AddBook" Content="Добавить" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="2" VerticalAlignment="Center" Width="117" Height="35" Click="btn_AddBook_Click"/>
-        <Button x:Name="btn_ChangeBook" Content="Изменить" HorizontalAlignment="Left" Margin="132,0,0,0" Grid.Row="2" VerticalAlignment="Center" Height="35" Width="117" Click="btn_ChangeBook_Click"/>
-        <Button x:Name="btn_DelBook" Content="Удалить" HorizontalAlignment="Left" Margin="665,0,0,0" Grid.Row="2" VerticalAlignment="Center" Width="117" Height="35" Click="btn_DelBook_Click"/>
+        <Button x:Name="btn_AddBook" Content="Добавить" HorizontalAlignment="Left" Margin="133,0,0,0" Grid.Row="2" VerticalAlignment="Center" Width="264" Height="35" Click="btn_AddBook_Click"/>
+        <Button x:Name="btn_ChangeBook" Content="Изменить" HorizontalAlignment="Left" Margin="402,0,0,0" Grid.Row="2" VerticalAlignment="Center" Height="35" Width="271" Click="btn_ChangeBook_Click"/>
         <Button x:Name="btn_unlogin" Content="Назад" HorizontalAlignment="Left" Margin="713,0,0,0" VerticalAlignment="Center" RenderTransformOrigin="0.439,0.07" Width="69" Height="25" Click="btn_back_Click"/>
-        <Label Content="Список книг" FontSize="18" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Label Content="Список книг" FontSize="18" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="104,0,0,0"/>
+        <TextBox x:Name="tb_FindBook" HorizontalAlignment="Left" Margin="363,0,0,0" TextWrapping="Wrap" VerticalAlignment="Center" Width="310" Height="25" TextChanged="tb_FindBook_TextChanged"/>
     </Grid>
 </Page>

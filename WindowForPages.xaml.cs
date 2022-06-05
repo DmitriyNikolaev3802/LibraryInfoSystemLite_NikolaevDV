@@ -46,5 +46,10 @@ namespace LibraryInfoSystemLite_NikolaevDV
             authWin.Show();
             Close();
         }
+
+        private void Button_Profile_Click(object sender, RoutedEventArgs e)
+        {
+            fMain.Navigate(new UserProfile());
+        }
     }
 }

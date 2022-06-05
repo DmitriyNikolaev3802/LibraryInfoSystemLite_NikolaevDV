@@ -21,10 +21,12 @@ namespace LibraryInfoSystemLite_NikolaevDV.Pages
     /// </summary>
     public partial class PageBook : Page
     {
+        private Book _book;
         
         public PageBook(Book book)
         {
             InitializeComponent();
+            _book = book;
             lb_Book.ItemsSource = DB.db.Book.ToList();
         }
 
@@ -41,7 +43,8 @@ namespace LibraryInfoSystemLite_NikolaevDV.Pages
         private void btn_ChangeBook_Click(object sender, RoutedEventArgs e)
         {
             Book book = lb_Book.SelectedItem as Book;
-            NavigationService.Navigate(new ChangeBookPage());
+            if(book != null)
+                NavigationService.Navigate(new AddBookPage(book));
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
@@ -54,15 +57,27 @@ namespace LibraryInfoSystemLite_NikolaevDV.Pages
             //lb_Book.SelectedItem != null ? true : false;
         }
 
-        private void btn_DelBook_Click(object sender, RoutedEventArgs e)
+        private void tb_FindBook_TextChanged(object sender, TextChangedEventArgs e)
         {
-            MessageBoxResult result = MessageBox.Show("Вы уверены, что хотите удалить эту книгу?", "Внимание!", MessageBoxButton.YesNo, MessageBoxImage.Warning);
-            if (result == MessageBoxResult.Yes)
-            {
-                //DB.db.Book.Remove(_product);
-                DB.db.SaveChanges();
-            }
+            List<Book> books = GetBook();
+            lb_Book.ItemsSource = books;
         }
 
+        private List<Book> GetBook()
+        {
+            List<Book> books = DB.db.Book.ToList();
+            if (!String.IsNullOrEmpty(tb_FindBook.Text) && !String.IsNullOrWhiteSpace(tb_FindBook.Text))
+                books = FindBook(books);
+            return books;
+        }
+
+        private List<Book> FindBook(List<Book> books)
+        {
+            books = books.Where(p =>
+                p.NameBook.ToLower().Contains(tb_FindBook.Text.ToLower()) ||
+                p.Redaction.ToLower().Contains(tb_FindBook.Text.ToLower()) ||
+                p.BookCode.ToLower().Contains(tb_FindBook.Text.ToLower())).ToList();
+            return books;
+        }
     }
 }

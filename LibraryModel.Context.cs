@@ -34,7 +34,6 @@ namespace LibraryInfoSystemLite_NikolaevDV
         public virtual DbSet<LanguageTranslation> LanguageTranslation { get; set; }
         public virtual DbSet<PublicType> PublicType { get; set; }
         public virtual DbSet<PublishHouse> PublishHouse { get; set; }
-        public virtual DbSet<Queue> Queue { get; set; }
         public virtual DbSet<ReadyIssuance> ReadyIssuance { get; set; }
         public virtual DbSet<Role> Role { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }

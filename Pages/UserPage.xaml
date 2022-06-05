@@ -74,9 +74,8 @@
         </ListBox>
         <Button x:Name="btn_Back" Content="Назад" HorizontalAlignment="Left" Margin="702,0,0,0" VerticalAlignment="Center" RenderTransformOrigin="0.439,0.07" Width="69" Height="25" Click="btn_Back_Click"/>
         <TextBox x:Name="tb_User" HorizontalAlignment="Left" Margin="312,0,0,0" TextWrapping="Wrap" VerticalAlignment="Center" Width="373" Height="25" TextChanged="tb_User_TextChanged"/>
-        <Button x:Name="btn_AddUser" Content="Добавить пользователя" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="2" VerticalAlignment="Center" Height="35" Width="172" Click="btn_AddUser_Click"/>
-        <Button x:Name="btn_ChangeUser" Content="Изменить данные пользователя" HorizontalAlignment="Left" Margin="198,0,0,0" Grid.Row="2" VerticalAlignment="Center" Height="35" Width="202" Click="btn_ChangeUser_Click"/>
-        <Button x:Name="btn_DelUser" Content="Удалить пользователя" HorizontalAlignment="Left" Margin="618,0,0,0" Grid.Row="2" VerticalAlignment="Center" Height="35" Width="172"/>
+        <Button x:Name="btn_AddUser" Content="Добавить пользователя" HorizontalAlignment="Left" Margin="199,0,0,0" Grid.Row="2" VerticalAlignment="Center" Height="35" Width="194" Click="btn_AddUser_Click"/>
+        <Button x:Name="btn_ChangeUser" Content="Изменить данные пользователя" HorizontalAlignment="Left" Margin="398,0,0,0" Grid.Row="2" VerticalAlignment="Center" Height="35" Width="202" Click="btn_ChangeUser_Click"/>
         <Label Content="Список читателей" FontSize="18" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="14,0,0,0"/>
     </Grid>
 </Page>

@@ -17,7 +17,7 @@
             <PropertyRef Name="AppealsID" />
           </Key>
           <Property Name="AppealsID" Type="int" Nullable="false" />
-          <Property Name="Appeals" Type="nvarchar" MaxLength="50" />
+          <Property Name="Appeals" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="Author">
           <Key>
@@ -25,30 +25,30 @@
           </Key>
           <Property Name="AuthorID" Type="int" Nullable="false" />
           <Property Name="FIO_Author" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="BirthYear" Type="nvarchar" MaxLength="50" />
-          <Property Name="Telephone" Type="nvarchar" MaxLength="50" />
-          <Property Name="Address" Type="nvarchar" MaxLength="50" />
+          <Property Name="BirthYear" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Telephone" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Address" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="Book">
           <Key>
             <PropertyRef Name="BookID" />
           </Key>
-          <Property Name="BookID" Type="int" Nullable="false" />
+          <Property Name="BookID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="NameBook" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="Annotation" Type="int" Nullable="false" />
-          <Property Name="Description" Type="nvarchar" MaxLength="50" />
-          <Property Name="Genre" Type="int" Nullable="false" />
-          <Property Name="Quanity" Type="int" />
-          <Property Name="Author" Type="int" Nullable="false" />
-          <Property Name="PublishHouse" Type="int" Nullable="false" />
+          <Property Name="Annotation" Type="int" />
+          <Property Name="Description" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Genre" Type="int" />
+          <Property Name="Quanity" Type="int" Nullable="false" />
+          <Property Name="Author" Type="int" />
+          <Property Name="PublishHouse" Type="int" />
           <Property Name="TomeNumber" Type="int" Nullable="false" />
           <Property Name="TomeQuanity" Type="int" Nullable="false" />
-          <Property Name="PublicType" Type="int" Nullable="false" />
-          <Property Name="Language" Type="int" Nullable="false" />
-          <Property Name="LanguageTranstation" Type="int" Nullable="false" />
+          <Property Name="PublicType" Type="int" />
+          <Property Name="Language" Type="int" />
+          <Property Name="LanguageTranstation" Type="int" />
           <Property Name="Redaction" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="ReleaseYear" Type="int" Nullable="false" />
-          <Property Name="BookCode" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ReleaseYear" Type="int" />
+          <Property Name="BookCode" Type="nvarchar" MaxLength="50" />
           <Property Name="ReadyFIssuanse" Type="int" />
         </EntityType>
         <EntityType Name="Genre">
@@ -85,29 +85,21 @@
             <PropertyRef Name="PublishHouseID" />
           </Key>
           <Property Name="PublishHouseID" Type="int" Nullable="false" />
-          <Property Name="PublishHouse" Type="nvarchar" MaxLength="50" />
-          <Property Name="City" Type="nvarchar" MaxLength="50" />
-        </EntityType>
-        <EntityType Name="Queue">
-          <Key>
-            <PropertyRef Name="QueueID" />
-          </Key>
-          <Property Name="QueueID" Type="int" Nullable="false" />
-          <Property Name="UserID" Type="int" />
-          <Property Name="BookID" Type="int" />
+          <Property Name="PublishHouse" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="City" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="ReadyIssuance">
           <Key>
             <PropertyRef Name="ReadyIssuanceID" />
           </Key>
           <Property Name="ReadyIssuanceID" Type="int" Nullable="false" />
-          <Property Name="ReadyIssuance" Type="nvarchar" MaxLength="50" />
+          <Property Name="ReadyIssuance" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="Role">
           <Key>
             <PropertyRef Name="RoleID" />
           </Key>
-          <Property Name="RoleID" Type="int" Nullable="false" />
+          <Property Name="RoleID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Role" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="sysdiagrams">
@@ -124,22 +116,21 @@
           <Key>
             <PropertyRef Name="UserID" />
           </Key>
-          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="UserID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Surname" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="MiddleName" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="Login" Type="nvarchar" MaxLength="50" />
-          <Property Name="Password" Type="nvarchar" MaxLength="50" />
+          <Property Name="Login" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Addrees" Type="nvarchar(max)" Nullable="false" />
           <Property Name="Telephone" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Book" Type="int" />
-          <Property Name="Appeals" Type="int" Nullable="false" />
-          <Property Name="DateExtradition" Type="date" />
+          <Property Name="Appeals" Type="int" />
           <Property Name="DateReturn" Type="date" />
           <Property Name="RoleID" Type="int" Nullable="false" />
         </EntityType>
         <Association Name="FK_Book_Annotation">
-          <End Role="Annotation" Type="Self.Annotation" Multiplicity="1" />
+          <End Role="Annotation" Type="Self.Annotation" Multiplicity="0..1" />
           <End Role="Book" Type="Self.Book" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Annotation">
@@ -151,7 +142,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Book_Author">
-          <End Role="Author" Type="Self.Author" Multiplicity="1" />
+          <End Role="Author" Type="Self.Author" Multiplicity="0..1" />
           <End Role="Book" Type="Self.Book" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Author">
@@ -163,7 +154,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Book_Genre">
-          <End Role="Genre" Type="Self.Genre" Multiplicity="1" />
+          <End Role="Genre" Type="Self.Genre" Multiplicity="0..1" />
           <End Role="Book" Type="Self.Book" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Genre">
@@ -175,7 +166,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Book_Language">
-          <End Role="Language" Type="Self.Language" Multiplicity="1" />
+          <End Role="Language" Type="Self.Language" Multiplicity="0..1" />
           <End Role="Book" Type="Self.Book" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Language">
@@ -187,7 +178,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Book_LanguageTranslation">
-          <End Role="LanguageTranslation" Type="Self.LanguageTranslation" Multiplicity="1" />
+          <End Role="LanguageTranslation" Type="Self.LanguageTranslation" Multiplicity="0..1" />
           <End Role="Book" Type="Self.Book" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="LanguageTranslation">
@@ -199,7 +190,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Book_PublicType">
-          <End Role="PublicType" Type="Self.PublicType" Multiplicity="1" />
+          <End Role="PublicType" Type="Self.PublicType" Multiplicity="0..1" />
           <End Role="Book" Type="Self.Book" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="PublicType">
@@ -211,7 +202,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Book_PublishHouse">
-          <End Role="PublishHouse" Type="Self.PublishHouse" Multiplicity="1" />
+          <End Role="PublishHouse" Type="Self.PublishHouse" Multiplicity="0..1" />
           <End Role="Book" Type="Self.Book" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="PublishHouse">
@@ -234,32 +225,8 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Queue_Book">
-          <End Role="Book" Type="Self.Book" Multiplicity="0..1" />
-          <End Role="Queue" Type="Self.Queue" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Book">
-              <PropertyRef Name="BookID" />
-            </Principal>
-            <Dependent Role="Queue">
-              <PropertyRef Name="BookID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Queue_User">
-          <End Role="User" Type="Self.User" Multiplicity="0..1" />
-          <End Role="Queue" Type="Self.Queue" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="User">
-              <PropertyRef Name="UserID" />
-            </Principal>
-            <Dependent Role="Queue">
-              <PropertyRef Name="UserID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_User_Appeals">
-          <End Role="Appeals" Type="Self.Appeals" Multiplicity="1" />
+          <End Role="Appeals" Type="Self.Appeals" Multiplicity="0..1" />
           <End Role="User" Type="Self.User" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Appeals">
@@ -267,6 +234,18 @@
             </Principal>
             <Dependent Role="User">
               <PropertyRef Name="Appeals" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_Book">
+          <End Role="Book" Type="Self.Book" Multiplicity="0..1" />
+          <End Role="User" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Book">
+              <PropertyRef Name="BookID" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="Book" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -292,7 +271,6 @@
           <EntitySet Name="LanguageTranslation" EntityType="Self.LanguageTranslation" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PublicType" EntityType="Self.PublicType" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PublishHouse" EntityType="Self.PublishHouse" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Queue" EntityType="Self.Queue" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ReadyIssuance" EntityType="Self.ReadyIssuance" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
@@ -329,16 +307,12 @@
             <End Role="ReadyIssuance" EntitySet="ReadyIssuance" />
             <End Role="Book" EntitySet="Book" />
           </AssociationSet>
-          <AssociationSet Name="FK_Queue_Book" Association="Self.FK_Queue_Book">
-            <End Role="Book" EntitySet="Book" />
-            <End Role="Queue" EntitySet="Queue" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Queue_User" Association="Self.FK_Queue_User">
-            <End Role="User" EntitySet="User" />
-            <End Role="Queue" EntitySet="Queue" />
-          </AssociationSet>
           <AssociationSet Name="FK_User_Appeals" Association="Self.FK_User_Appeals">
             <End Role="Appeals" EntitySet="Appeals" />
+            <End Role="User" EntitySet="User" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_Book" Association="Self.FK_User_Book">
+            <End Role="Book" EntitySet="Book" />
             <End Role="User" EntitySet="User" />
           </AssociationSet>
           <AssociationSet Name="FK_User_Role" Association="Self.FK_User_Role">
@@ -364,7 +338,7 @@
             <PropertyRef Name="AppealsID" />
           </Key>
           <Property Name="AppealsID" Type="Int32" Nullable="false" />
-          <Property Name="Appeals1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Appeals1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="User" Relationship="Self.FK_User_Appeals" FromRole="Appeals" ToRole="User" />
         </EntityType>
         <EntityType Name="Author">
@@ -373,31 +347,31 @@
           </Key>
           <Property Name="AuthorID" Type="Int32" Nullable="false" />
           <Property Name="FIO_Author" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="BirthYear" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Telephone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BirthYear" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Telephone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Book" Relationship="Self.FK_Book_Author" FromRole="Author" ToRole="Book" />
         </EntityType>
         <EntityType Name="Book">
           <Key>
             <PropertyRef Name="BookID" />
           </Key>
-          <Property Name="BookID" Type="Int32" Nullable="false" />
+          <Property Name="BookID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="NameBook" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Annotation" Type="Int32" Nullable="false" />
-          <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Genre" Type="Int32" Nullable="false" />
-          <Property Name="Quanity" Type="Int32" />
-          <Property Name="Author" Type="Int32" Nullable="false" />
-          <Property Name="PublishHouse" Type="Int32" Nullable="false" />
+          <Property Name="Annotation" Type="Int32" />
+          <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Genre" Type="Int32" />
+          <Property Name="Quanity" Type="Int32" Nullable="false" />
+          <Property Name="Author" Type="Int32" />
+          <Property Name="PublishHouse" Type="Int32" />
           <Property Name="TomeNumber" Type="Int32" Nullable="false" />
           <Property Name="TomeQuanity" Type="Int32" Nullable="false" />
-          <Property Name="PublicType" Type="Int32" Nullable="false" />
-          <Property Name="Language" Type="Int32" Nullable="false" />
-          <Property Name="LanguageTranstation" Type="Int32" Nullable="false" />
+          <Property Name="PublicType" Type="Int32" />
+          <Property Name="Language" Type="Int32" />
+          <Property Name="LanguageTranstation" Type="Int32" />
           <Property Name="Redaction" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="ReleaseYear" Type="Int32" Nullable="false" />
-          <Property Name="BookCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ReleaseYear" Type="Int32" />
+          <Property Name="BookCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="ReadyFIssuanse" Type="Int32" />
           <NavigationProperty Name="Annotation1" Relationship="Self.FK_Book_Annotation" FromRole="Book" ToRole="Annotation" />
           <NavigationProperty Name="Author1" Relationship="Self.FK_Book_Author" FromRole="Book" ToRole="Author" />
@@ -407,7 +381,7 @@
           <NavigationProperty Name="PublicType1" Relationship="Self.FK_Book_PublicType" FromRole="Book" ToRole="PublicType" />
           <NavigationProperty Name="PublishHouse1" Relationship="Self.FK_Book_PublishHouse" FromRole="Book" ToRole="PublishHouse" />
           <NavigationProperty Name="ReadyIssuance" Relationship="Self.FK_Book_ReadyIssuance" FromRole="Book" ToRole="ReadyIssuance" />
-          <NavigationProperty Name="Queue" Relationship="Self.FK_Queue_Book" FromRole="Book" ToRole="Queue" />
+          <NavigationProperty Name="User" Relationship="Self.FK_User_Book" FromRole="Book" ToRole="User" />
         </EntityType>
         <EntityType Name="Genre">
           <Key>
@@ -447,33 +421,23 @@
             <PropertyRef Name="PublishHouseID" />
           </Key>
           <Property Name="PublishHouseID" Type="Int32" Nullable="false" />
-          <Property Name="PublishHouse1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PublishHouse1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Book" Relationship="Self.FK_Book_PublishHouse" FromRole="PublishHouse" ToRole="Book" />
-        </EntityType>
-        <EntityType Name="Queue">
-          <Key>
-            <PropertyRef Name="QueueID" />
-          </Key>
-          <Property Name="QueueID" Type="Int32" Nullable="false" />
-          <Property Name="UserID" Type="Int32" />
-          <Property Name="BookID" Type="Int32" />
-          <NavigationProperty Name="Book" Relationship="Self.FK_Queue_Book" FromRole="Queue" ToRole="Book" />
-          <NavigationProperty Name="User" Relationship="Self.FK_Queue_User" FromRole="Queue" ToRole="User" />
         </EntityType>
         <EntityType Name="ReadyIssuance">
           <Key>
             <PropertyRef Name="ReadyIssuanceID" />
           </Key>
           <Property Name="ReadyIssuanceID" Type="Int32" Nullable="false" />
-          <Property Name="ReadyIssuance1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ReadyIssuance1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Book" Relationship="Self.FK_Book_ReadyIssuance" FromRole="ReadyIssuance" ToRole="Book" />
         </EntityType>
         <EntityType Name="Role">
           <Key>
             <PropertyRef Name="RoleID" />
           </Key>
-          <Property Name="RoleID" Type="Int32" Nullable="false" />
+          <Property Name="RoleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Role1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="User" Relationship="Self.FK_User_Role" FromRole="Role" ToRole="User" />
         </EntityType>
@@ -491,25 +455,24 @@
           <Key>
             <PropertyRef Name="UserID" />
           </Key>
-          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="MiddleName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Login" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Login" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Addrees" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Telephone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Book" Type="Int32" />
-          <Property Name="Appeals" Type="Int32" Nullable="false" />
-          <Property Name="DateExtradition" Type="DateTime" Precision="0" />
+          <Property Name="Appeals" Type="Int32" />
           <Property Name="DateReturn" Type="DateTime" Precision="0" />
           <Property Name="RoleID" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Appeals1" Relationship="Self.FK_User_Appeals" FromRole="User" ToRole="Appeals" />
-          <NavigationProperty Name="Queue" Relationship="Self.FK_Queue_User" FromRole="User" ToRole="Queue" />
+          <NavigationProperty Name="Book1" Relationship="Self.FK_User_Book" FromRole="User" ToRole="Book" />
           <NavigationProperty Name="Role" Relationship="Self.FK_User_Role" FromRole="User" ToRole="Role" />
         </EntityType>
         <Association Name="FK_Book_Annotation">
-          <End Role="Annotation" Type="Self.Annotation" Multiplicity="1" />
+          <End Role="Annotation" Type="Self.Annotation" Multiplicity="0..1" />
           <End Role="Book" Type="Self.Book" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Annotation">
@@ -521,7 +484,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_User_Appeals">
-          <End Role="Appeals" Type="Self.Appeals" Multiplicity="1" />
+          <End Role="Appeals" Type="Self.Appeals" Multiplicity="0..1" />
           <End Role="User" Type="Self.User" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Appeals">
@@ -533,7 +496,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Book_Author">
-          <End Role="Author" Type="Self.Author" Multiplicity="1" />
+          <End Role="Author" Type="Self.Author" Multiplicity="0..1" />
           <End Role="Book" Type="Self.Book" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Author">
@@ -545,7 +508,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Book_Genre">
-          <End Role="Genre" Type="Self.Genre" Multiplicity="1" />
+          <End Role="Genre" Type="Self.Genre" Multiplicity="0..1" />
           <End Role="Book" Type="Self.Book" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Genre">
@@ -557,7 +520,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Book_Language">
-          <End Role="Language" Type="Self.Language" Multiplicity="1" />
+          <End Role="Language" Type="Self.Language" Multiplicity="0..1" />
           <End Role="Book" Type="Self.Book" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Language">
@@ -569,7 +532,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Book_LanguageTranslation">
-          <End Role="LanguageTranslation" Type="Self.LanguageTranslation" Multiplicity="1" />
+          <End Role="LanguageTranslation" Type="Self.LanguageTranslation" Multiplicity="0..1" />
           <End Role="Book" Type="Self.Book" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="LanguageTranslation">
@@ -581,7 +544,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Book_PublicType">
-          <End Role="PublicType" Type="Self.PublicType" Multiplicity="1" />
+          <End Role="PublicType" Type="Self.PublicType" Multiplicity="0..1" />
           <End Role="Book" Type="Self.Book" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="PublicType">
@@ -593,7 +556,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Book_PublishHouse">
-          <End Role="PublishHouse" Type="Self.PublishHouse" Multiplicity="1" />
+          <End Role="PublishHouse" Type="Self.PublishHouse" Multiplicity="0..1" />
           <End Role="Book" Type="Self.Book" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="PublishHouse">
@@ -616,27 +579,15 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Queue_Book">
+        <Association Name="FK_User_Book">
           <End Role="Book" Type="Self.Book" Multiplicity="0..1" />
-          <End Role="Queue" Type="Self.Queue" Multiplicity="*" />
+          <End Role="User" Type="Self.User" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Book">
               <PropertyRef Name="BookID" />
             </Principal>
-            <Dependent Role="Queue">
-              <PropertyRef Name="BookID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Queue_User">
-          <End Role="User" Type="Self.User" Multiplicity="0..1" />
-          <End Role="Queue" Type="Self.Queue" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="User">
-              <PropertyRef Name="UserID" />
-            </Principal>
-            <Dependent Role="Queue">
-              <PropertyRef Name="UserID" />
+            <Dependent Role="User">
+              <PropertyRef Name="Book" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -662,7 +613,6 @@
           <EntitySet Name="LanguageTranslation" EntityType="Self.LanguageTranslation" />
           <EntitySet Name="PublicType" EntityType="Self.PublicType" />
           <EntitySet Name="PublishHouse" EntityType="Self.PublishHouse" />
-          <EntitySet Name="Queue" EntityType="Self.Queue" />
           <EntitySet Name="ReadyIssuance" EntityType="Self.ReadyIssuance" />
           <EntitySet Name="Role" EntityType="Self.Role" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
@@ -703,13 +653,9 @@
             <End Role="ReadyIssuance" EntitySet="ReadyIssuance" />
             <End Role="Book" EntitySet="Book" />
           </AssociationSet>
-          <AssociationSet Name="FK_Queue_Book" Association="Self.FK_Queue_Book">
+          <AssociationSet Name="FK_User_Book" Association="Self.FK_User_Book">
             <End Role="Book" EntitySet="Book" />
-            <End Role="Queue" EntitySet="Queue" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Queue_User" Association="Self.FK_Queue_User">
             <End Role="User" EntitySet="User" />
-            <End Role="Queue" EntitySet="Queue" />
           </AssociationSet>
           <AssociationSet Name="FK_User_Role" Association="Self.FK_User_Role">
             <End Role="Role" EntitySet="Role" />
@@ -814,15 +760,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Queue">
-            <EntityTypeMapping TypeName="LibraryModel.Queue">
-              <MappingFragment StoreEntitySet="Queue">
-                <ScalarProperty Name="QueueID" ColumnName="QueueID" />
-                <ScalarProperty Name="UserID" ColumnName="UserID" />
-                <ScalarProperty Name="BookID" ColumnName="BookID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="ReadyIssuance">
             <EntityTypeMapping TypeName="LibraryModel.ReadyIssuance">
               <MappingFragment StoreEntitySet="ReadyIssuance">
@@ -863,7 +800,6 @@
                 <ScalarProperty Name="Telephone" ColumnName="Telephone" />
                 <ScalarProperty Name="Book" ColumnName="Book" />
                 <ScalarProperty Name="Appeals" ColumnName="Appeals" />
-                <ScalarProperty Name="DateExtradition" ColumnName="DateExtradition" />
                 <ScalarProperty Name="DateReturn" ColumnName="DateReturn" />
                 <ScalarProperty Name="RoleID" ColumnName="RoleID" />
               </MappingFragment>

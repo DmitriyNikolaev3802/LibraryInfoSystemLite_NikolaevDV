@@ -17,24 +17,27 @@
         <Rectangle Fill="White"/>
         <Rectangle Fill="White" Grid.Row="1"/>
         <Rectangle Fill="Orange" Grid.Row="2"/>
-        <Label Content="Добавить пользователя" FontSize="18" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-        <Button x:Name="btn_AddUser" Content="Добавить" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Center" Height="35" Width="101"/>
-        <TextBox x:Name="tb_Surname" HorizontalAlignment="Left" Margin="165,38,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="174" Height="23"/>
-        <Label Content="Фамилия:" FontSize="14" FontWeight="Bold" HorizontalAlignment="Left" Margin="78,29,0,0" Grid.Row="1" VerticalAlignment="Top" Width="200"/>
-        <TextBox x:Name="tb_Name" HorizontalAlignment="Left" Margin="165,78,0,0" Grid.Row="1" TextWrapping="Wrap"  VerticalAlignment="Top" Width="174" Height="23"/>
-        <Label Content="Имя:" FontSize="14" FontWeight="Bold" HorizontalAlignment="Left" Margin="108,72,0,0" Grid.Row="1" VerticalAlignment="Top" Width="200"/>
-        <TextBox x:Name="tb_Telephone" HorizontalAlignment="Left" Margin="448,78,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="174" Height="23"/>
-        <Label Content="Роль:" FontSize="14" FontWeight="Bold" HorizontalAlignment="Left" Margin="400,113,0,0" Grid.Row="1" VerticalAlignment="Top" Width="200"/>
-        <TextBox x:Name="tb_MiddleName" HorizontalAlignment="Left" Margin="165,116,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="174" Height="23"/>
-        <Label Content="Отчество:" FontSize="14" FontWeight="Bold" HorizontalAlignment="Left" Margin="78,111,0,0" Grid.Row="1" VerticalAlignment="Top" Width="200"/>
-        <TextBox x:Name="tb_Addrees" HorizontalAlignment="Left" Margin="448,38,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="174" Height="23"/>
-        <Label Content="Адрес:" FontSize="14" FontWeight="Bold" HorizontalAlignment="Left" Margin="386,32,0,0" Grid.Row="1" VerticalAlignment="Top" Width="200"/>
-        <ComboBox x:Name="cb_Role" HorizontalAlignment="Left" Margin="448,120,0,0" Grid.Row="1" VerticalAlignment="Top" Width="174"/>
-        <Label Content="Телефон:" FontSize="14" FontWeight="Bold" HorizontalAlignment="Left" Margin="373,72,0,0" Grid.Row="1" VerticalAlignment="Top" Width="200"/>
+        <Label Content="Добавить/Изменить пользователя" FontSize="18" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Button x:Name="btn_SaveUser" Content="Сохранить" HorizontalAlignment="Left" Grid.Row="2" VerticalAlignment="Center" Height="35" Width="226" Margin="164,0,0,0" Click="btn_SaveUser_Click"/>
+        <TextBox x:Name="tb_Surname" Text="{Binding Surname}" HorizontalAlignment="Left" Margin="165,38,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="174" Height="23"/>
+        <Label Content="Фамилия:" FontSize="14" FontWeight="Bold" HorizontalAlignment="Left" Margin="78,29,0,0" Grid.Row="1" VerticalAlignment="Top" Width="82"/>
+        <TextBox x:Name="tb_Name" Text="{Binding Name}" HorizontalAlignment="Left" Margin="165,78,0,0" Grid.Row="1" TextWrapping="Wrap"  VerticalAlignment="Top" Width="174" Height="23"/>
+        <Label Content="Имя:" FontSize="14" FontWeight="Bold" HorizontalAlignment="Left" Margin="108,72,0,0" Grid.Row="1" VerticalAlignment="Top" Width="52"/>
+        <TextBox x:Name="tb_Telephone" Text="{Binding Telephone}" HorizontalAlignment="Left" Margin="448,78,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="174" Height="23"/>
+        <Label Content="Роль:" FontSize="14" FontWeight="Bold" HorizontalAlignment="Left" Margin="395,113,0,0" Grid.Row="1" VerticalAlignment="Top" Width="48"/>
+        <TextBox x:Name="tb_MiddleName" Text="{Binding MiddleName}" HorizontalAlignment="Left" Margin="165,116,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="174" Height="23"/>
+        <Label Content="Отчество:" FontSize="14" FontWeight="Bold" HorizontalAlignment="Left" Margin="78,111,0,0" Grid.Row="1" VerticalAlignment="Top" Width="82"/>
+        <TextBox x:Name="tb_Addrees" Text="{Binding Addrees}" HorizontalAlignment="Left" Margin="448,38,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="174" Height="23"/>
+        <Label Content="Адрес:" FontSize="14" FontWeight="Bold" HorizontalAlignment="Left" Margin="380,32,0,0" Grid.Row="1" VerticalAlignment="Top" Width="57"/>
+        <ComboBox x:Name="cb_Role" SelectedItem="{Binding Role}" HorizontalAlignment="Left" Margin="448,120,0,0" Grid.Row="1" VerticalAlignment="Top" Width="174"/>
+        <Label Content="Телефон:" FontSize="14" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,72,0,0" Grid.Row="1" VerticalAlignment="Top" Width="74"/>
         <Button x:Name="btn_Back" Content="Назад" HorizontalAlignment="Left" VerticalAlignment="Center" Height="35" Width="100" Margin="690,0,0,0" Click="btn_Back_Click"/>
-        <TextBox x:Name="tb_MiddleName_Copy" HorizontalAlignment="Left" Margin="165,199,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="174" Height="23"/>
-        <Label Content="Логин:" FontSize="14" FontWeight="Bold" HorizontalAlignment="Left" Margin="78,194,0,0" Grid.Row="1" VerticalAlignment="Top" Width="200"/>
-        <TextBox x:Name="tb_MiddleName_Copy1" HorizontalAlignment="Left" Margin="460,201,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="174" Height="23"/>
-        <Label Content="Пароль:" FontSize="14" FontWeight="Bold" HorizontalAlignment="Left" Margin="373,196,0,0" Grid.Row="1" VerticalAlignment="Top" Width="200"/>
+        <TextBox Text="{Binding Login}" x:Name="tb_Login" HorizontalAlignment="Left" Margin="170,191,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="174" Height="24"/>
+        <Label Content="Логин:" FontSize="14" FontWeight="Bold" HorizontalAlignment="Left" Margin="96,188,0,0" Grid.Row="1" VerticalAlignment="Top" Width="56"/>
+        <TextBox Text="{Binding Password}" x:Name="tb_Password" HorizontalAlignment="Left" Margin="452,191,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="174" Height="24"/>
+        <Label Content="Пароль:" FontSize="14" FontWeight="Bold" HorizontalAlignment="Left" Margin="374,188,0,0" Grid.Row="1" VerticalAlignment="Top" Width="73"/>
+        <Button x:Name="btn_DelUser" Content="Удалить" HorizontalAlignment="Left" Margin="395,0,0,0" Grid.Row="2" VerticalAlignment="Center" Height="35" Width="226" Click="btn_DelUser_Click"/>
+        <Label Content="Посещал ли раньше:" FontSize="14" FontWeight="Bold" HorizontalAlignment="Left" Margin="245,225,0,0" Grid.Row="1" VerticalAlignment="Top" Width="155"/>
+        <ComboBox x:Name="cb_Appeals" SelectedItem="{Binding Appeals1}" HorizontalAlignment="Left" Margin="405,229,0,0" Grid.Row="1" VerticalAlignment="Top" Width="174"/>
     </Grid>
 </Page>

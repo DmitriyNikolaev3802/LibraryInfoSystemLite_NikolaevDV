@@ -14,12 +14,6 @@ namespace LibraryInfoSystemLite_NikolaevDV
     
     public partial class User
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public User()
-        {
-            this.Queue = new HashSet<Queue>();
-        }
-    
         public int UserID { get; set; }
         public string Surname { get; set; }
         public string Name { get; set; }
@@ -29,14 +23,12 @@ namespace LibraryInfoSystemLite_NikolaevDV
         public string Addrees { get; set; }
         public string Telephone { get; set; }
         public Nullable<int> Book { get; set; }
-        public int Appeals { get; set; }
-        public Nullable<System.DateTime> DateExtradition { get; set; }
+        public Nullable<int> Appeals { get; set; }
         public Nullable<System.DateTime> DateReturn { get; set; }
         public int RoleID { get; set; }
     
         public virtual Appeals Appeals1 { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Queue> Queue { get; set; }
+        public virtual Book Book1 { get; set; }
         public virtual Role Role { get; set; }
     }
 }

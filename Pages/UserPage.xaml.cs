@@ -41,7 +41,9 @@ namespace LibraryInfoSystemLite_NikolaevDV.Pages
 
         private void btn_ChangeUser_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new ChangeUserPage());
+            User user = lb_User.SelectedItem as User;
+            if (user != null)
+                NavigationService.Navigate(new AddUserPage(user));
         }
 
         private void btn_DelUser_Click(object sender, RoutedEventArgs e)

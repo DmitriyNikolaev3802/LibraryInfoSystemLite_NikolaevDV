@@ -79,9 +79,17 @@
     <Compile Include="Book.cs">
       <DependentUpon>LibraryModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Class\Annotation.cs" />
+    <Compile Include="Class\Appeals.cs" />
     <Compile Include="Class\Author.cs" />
     <Compile Include="Class\DB.cs" />
     <Compile Include="Class\Genre.cs" />
+    <Compile Include="Class\Language.cs" />
+    <Compile Include="Class\LanguageTranslation.cs" />
+    <Compile Include="Class\PublicType.cs" />
+    <Compile Include="Class\PublishHouse.cs" />
+    <Compile Include="Class\ReadyIssuance.cs" />
+    <Compile Include="Class\Role.cs" />
     <Compile Include="Genre.cs">
       <DependentUpon>LibraryModel.tt</DependentUpon>
     </Compile>
@@ -115,12 +123,6 @@
     <Compile Include="Pages\AdministationMenu.xaml.cs">
       <DependentUpon>AdministationMenu.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\ChangeBookPage.xaml.cs">
-      <DependentUpon>ChangeBookPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\ChangeUserPage.xaml.cs">
-      <DependentUpon>ChangeUserPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Pages\PageBook.xaml.cs">
       <DependentUpon>PageBook.xaml</DependentUpon>
     </Compile>
@@ -140,9 +142,6 @@
       <DependentUpon>LibraryModel.tt</DependentUpon>
     </Compile>
     <Compile Include="PublishHouse.cs">
-      <DependentUpon>LibraryModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Queue.cs">
       <DependentUpon>LibraryModel.tt</DependentUpon>
     </Compile>
     <Compile Include="ReadyIssuance.cs">
@@ -181,14 +180,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\AdministationMenu.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Pages\ChangeBookPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Pages\ChangeUserPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

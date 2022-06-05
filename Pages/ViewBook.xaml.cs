@@ -33,17 +33,18 @@ namespace LibraryInfoSystemLite_NikolaevDV.Pages
         }
 
 
-        private void ShowLbElements()
+        /*private void ShowLbElements()
         {
             List<Book> books = GetBook();
             cb_Genre.ItemsSource = books;
             cb_Author.ItemsSource = books;
-        }
+        }*/
 
         private void tb_Finder_TextChanged(object sender, TextChangedEventArgs e)
         {
-            List<Book> books = GetBook();
-            lb_Book.ItemsSource = books;
+            //List<Book> books = GetBook();
+            //lb_Book.ItemsSource = books;
+            ShowLbElements();
         }
 
         private List<Book> GetBook()
@@ -58,18 +59,24 @@ namespace LibraryInfoSystemLite_NikolaevDV.Pages
             return books;
         }
 
+        private void ShowLbElements()
+        {
+            List<Book> books = GetBook();
+            lb_Book.ItemsSource = books;
+        }
+
         private List<Book> GenreFilt(List<Book> books)
         {   
-            string genrefilt = cb_Genre.SelectedItem.ToString();
-           // books = books.Where(p => p.Genre1 = genrefilt).ToList();
+            string genre = cb_Genre.SelectedItem.ToString();
+            //books = books.Where(p => p.Genre == genre).ToList();
 
             return books;
         }
 
         private List<Book> AuthorFilt(List<Book> books)
         {
-            string authorfilt = cb_Author.SelectedItem.ToString();
-           // books = books.Where(p => p.Author1 = authorfilt).ToList();
+            string author = cb_Author.SelectedItem.ToString();
+            //books = books.Where(p => p.Author1 == author).ToList();
 
             return books;
         }
@@ -107,12 +114,12 @@ namespace LibraryInfoSystemLite_NikolaevDV.Pages
 
         private void cb_Genre_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            GetBook();
+            ShowLbElements();
         }
 
         private void cb_Author_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            GetBook();
+            ShowLbElements();
         }
     }
 }

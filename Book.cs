@@ -17,24 +17,24 @@ namespace LibraryInfoSystemLite_NikolaevDV
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Book()
         {
-            this.Queue = new HashSet<Queue>();
+            this.User = new HashSet<User>();
         }
     
         public int BookID { get; set; }
         public string NameBook { get; set; }
-        public int Annotation { get; set; }
+        public Nullable<int> Annotation { get; set; }
         public string Description { get; set; }
-        public int Genre { get; set; }
-        public Nullable<int> Quanity { get; set; }
-        public int Author { get; set; }
-        public int PublishHouse { get; set; }
+        public Nullable<int> Genre { get; set; }
+        public int Quanity { get; set; }
+        public Nullable<int> Author { get; set; }
+        public Nullable<int> PublishHouse { get; set; }
         public int TomeNumber { get; set; }
         public int TomeQuanity { get; set; }
-        public int PublicType { get; set; }
-        public int Language { get; set; }
-        public int LanguageTranstation { get; set; }
+        public Nullable<int> PublicType { get; set; }
+        public Nullable<int> Language { get; set; }
+        public Nullable<int> LanguageTranstation { get; set; }
         public string Redaction { get; set; }
-        public int ReleaseYear { get; set; }
+        public Nullable<int> ReleaseYear { get; set; }
         public string BookCode { get; set; }
         public Nullable<int> ReadyFIssuanse { get; set; }
     
@@ -47,6 +47,6 @@ namespace LibraryInfoSystemLite_NikolaevDV
         public virtual PublishHouse PublishHouse1 { get; set; }
         public virtual ReadyIssuance ReadyIssuance { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Queue> Queue { get; set; }
+        public virtual ICollection<User> User { get; set; }
     }
 }
