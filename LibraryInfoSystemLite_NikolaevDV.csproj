@@ -82,6 +82,7 @@
     <Compile Include="Class\Annotation.cs" />
     <Compile Include="Class\Appeals.cs" />
     <Compile Include="Class\Author.cs" />
+    <Compile Include="Class\Book.cs" />
     <Compile Include="Class\CurrentUser.cs" />
     <Compile Include="Class\DB.cs" />
     <Compile Include="Class\Genre.cs" />
@@ -91,6 +92,7 @@
     <Compile Include="Class\PublishHouse.cs" />
     <Compile Include="Class\ReadyIssuance.cs" />
     <Compile Include="Class\Role.cs" />
+    <Compile Include="Class\User.cs" />
     <Compile Include="Genre.cs">
       <DependentUpon>LibraryModel.tt</DependentUpon>
     </Compile>

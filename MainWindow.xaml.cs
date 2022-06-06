@@ -15,7 +15,7 @@ using System.Windows.Shapes;
 using System.Data.Entity;
 using LibraryInfoSystemLite_NikolaevDV.Class;
 using LibraryInfoSystemLite_NikolaevDV.Pages;
-
+using System.Net;
 
 namespace LibraryInfoSystemLite_NikolaevDV
 {
@@ -33,7 +33,7 @@ namespace LibraryInfoSystemLite_NikolaevDV
 
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
-            User user = DB.db.User.FirstOrDefault(u => u.Login == tbLogin.Text && u.Password == tbPassword.Text);
+            User user = DB.db.User.FirstOrDefault(u => u.Login == tbLogin.Text && u.Password == pbPassword.Password);
             
             if (user != null)
             {
@@ -43,6 +43,22 @@ namespace LibraryInfoSystemLite_NikolaevDV
                 Close();
             }
             else MessageBox.Show("Неправильный логин или пароль!", "Внимание", MessageBoxButton.OK, MessageBoxImage.Error);
+        }
+
+        private void checkbox_ViewPassword_Checked(object sender, RoutedEventArgs e)
+        {
+                pbPassword.Visibility = Visibility.Collapsed;
+                tbPassword.Visibility = Visibility.Visible;
+                tbPassword.Text = new NetworkCredential(string.Empty, pbPassword.SecurePassword).Password;
+                tbPassword.Focus();
+        }
+
+        private void checkbox_ViewPassword_Unchecked(object sender, RoutedEventArgs e)
+        {
+                pbPassword.Visibility = Visibility.Visible;
+                tbPassword.Visibility = Visibility.Collapsed;
+                tbPassword.Text = "";
+                pbPassword.Focus();
         }
     }
 }

@@ -19,8 +19,11 @@
         <Label FontWeight="Bold" Content="Вас приветствует информационная система &quot;Библиотека&quot;!&#xD;&#xA;" FontSize="18"  HorizontalAlignment="Left" VerticalAlignment="Top" Margin="144,20,0,0" Grid.RowSpan="2"/>
         <Label FontWeight="Bold" Content="Логин:" Margin="277,99,446,0" VerticalAlignment="Top" Height="33" Grid.Row="1"/>
         <TextBox x:Name="tbLogin" HorizontalAlignment="Left" Margin="334,99,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="181" Height="24" Grid.Row="1"/>
-        <TextBox x:Name="tbPassword" HorizontalAlignment="Left" Margin="334,130,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="181" Height="24" Grid.Row="1"/>
         <Label FontWeight="Bold" Content="Пожалуйста, авторизируйтесь!" HorizontalAlignment="Left" Margin="290,56,0,0" VerticalAlignment="Top" Height="36" Grid.Row="1"/>
         <Button Content="Войти" HorizontalAlignment="Left" Margin="334,191,0,0" Grid.Row="1" VerticalAlignment="Top" Width="104" Height="31" Click="btnLogin_Click"/>
+        <TextBox x:Name="tbPassword" HorizontalAlignment="Left" Margin="334,130,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="181" Height="24"/>
+        <PasswordBox x:Name="pbPassword" PasswordChar="*" HorizontalAlignment="Left" Margin="334,130,0,0" Grid.Row="1" VerticalAlignment="Top" Width="181" Height="24"/>
+        <CheckBox x:Name="checkbox_ViewPassword" Content="Показать пароль" HorizontalAlignment="Left" Margin="530,134,0,0" Grid.Row="1" VerticalAlignment="Top" Checked="checkbox_ViewPassword_Checked" Unchecked="checkbox_ViewPassword_Unchecked"/>
+        <Image HorizontalAlignment="Left" Height="307" Margin="122,0,0,0" Grid.Row="1" VerticalAlignment="Top" Width="508" Grid.RowSpan="2"/>
     </Grid>
 </Window>
