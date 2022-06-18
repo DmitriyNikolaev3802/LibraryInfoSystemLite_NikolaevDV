@@ -233,6 +233,7 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>LibraryModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <None Include=".editorconfig" />
     <None Include="LibraryModel.edmx.diagram">
       <DependentUpon>LibraryModel.edmx</DependentUpon>
     </None>

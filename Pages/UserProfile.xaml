@@ -36,15 +36,8 @@
         <Label x:Name="label_Role" Content="{Binding Role}" FontSize="14" HorizontalAlignment="Left" Margin="347,155,0,0" Grid.Row="1" VerticalAlignment="Top" Width="204" Height="28"/>
         <Button x:Name="btn_Back" Content="Назад" HorizontalAlignment="Left" Margin="688,0,0,0" VerticalAlignment="Center" Width="72" Height="25" Click="btn_Back_Click"/>
         <Label Content="" HorizontalAlignment="Left" Margin="414,0,0,0" Grid.Row="2" VerticalAlignment="Center"/>
-        <Image Source="\Images\profile_background.png" HorizontalAlignment="Left" Height="265" Margin="516,92,0,0" Grid.Row="1" VerticalAlignment="Top" Width="264" RenderTransformOrigin="0.5,0.5">
-            <Image.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="-36.213"/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Image.RenderTransform>
+        <Image Source="\Images\profile_background.png" HorizontalAlignment="Left" Height="265" Margin="503,101,0,0" Grid.Row="1" VerticalAlignment="Top" Width="264" RenderTransformOrigin="0.5,0.5" Grid.RowSpan="2">
+
         </Image>
     </Grid>
 </Page>

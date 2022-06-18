@@ -38,7 +38,8 @@ namespace LibraryInfoSystemLite_NikolaevDV.Pages
 
         private void btn_SetBookToUser_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new SetBookToUserPage());
+           // В следующей версии эта функция будет доделана
+           //NavigationService.Navigate(new SetBookToUserPage(Book book));
         }
     }
 }

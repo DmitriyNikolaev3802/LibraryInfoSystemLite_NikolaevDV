@@ -23,10 +23,11 @@ namespace LibraryInfoSystemLite_NikolaevDV.Pages
     {
         private User _user;
         private Book _book;
-        public SetBookToUserPage(User user, Book book)
+
+        public SetBookToUserPage(Book book)
         {
             InitializeComponent();
-            this._user = user;
+            //this._user = user;
             this._book = book;
             cb_SetUser.ItemsSource = DB.db.User.ToList();
             cb_SetBook.ItemsSource = DB.db.Book.ToList();
@@ -39,8 +40,8 @@ namespace LibraryInfoSystemLite_NikolaevDV.Pages
 
         private void btn_AddBookToUser_Click(object sender, RoutedEventArgs e)
         {
-            if (_user.UserID == ) DB.db.User.Add(_book);
-            DB.db.SaveChanges();
+            //if (_user.UserID == ) DB.db.User.Add(_book);
+            //DB.db.SaveChanges();
         }
     }
 }

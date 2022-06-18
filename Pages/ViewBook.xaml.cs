@@ -29,20 +29,19 @@ namespace LibraryInfoSystemLite_NikolaevDV.Pages
             lb_Book.ItemsSource = DB.db.Book.ToList();
             GenreFilterList();
             AuthorFilterList();
-            //ShowLbElements();
+            ShowLbElements();
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
             DB.db.ChangeTracker.Entries().ToList().ForEach(x => x.Reload());
-            //ShowLbElements();
+            ShowLbElements();
         }
 
         private void ShowLbElements()
         {
             List<Book> books = GetBook();
-            cb_Genre.ItemsSource = books;
-            cb_Author.ItemsSource = books;
+            lb_Book.ItemsSource = books;
         }
 
         private void tb_Finder_TextChanged(object sender, TextChangedEventArgs e)
@@ -57,30 +56,24 @@ namespace LibraryInfoSystemLite_NikolaevDV.Pages
             if (!String.IsNullOrEmpty(tb_Finder.Text) && !String.IsNullOrWhiteSpace(tb_Finder.Text))
                 books = FindBook(books);
             if (cb_Genre.SelectedIndex > 0)
-                books = GenreFilt(books);
+                books = FiltGenre(books);
             if (cb_Author.SelectedIndex > 0)
-                books = AuthorFilt(books);
+                books = FiltAuthor(books);
             return books;
         }
 
-        /*private void ShowLbElements()
-        {
-            List<Book> books = GetBook();
-            lb_Book.ItemsSource = books;
-        }*/
-
-        private List<Book> GenreFilt(List<Book> books)
+        private List<Book> FiltGenre(List<Book> books)
         {   
             string genre = cb_Genre.SelectedItem.ToString();
-            //books = books.Where(p => p.Genre == genre).ToList();
+            books = books.Where(p => p.Genre1.Genre1 == genre).ToList();
 
             return books;
         }
 
-        private List<Book> AuthorFilt(List<Book> books)
+        private List<Book> FiltAuthor(List<Book> books)
         {
             string author = cb_Author.SelectedItem.ToString();
-            //books = books.Where(p => p.Author1 == author).ToList();
+            books = books.Where(p => p.Author1.FIO_Author == author).ToList();
 
             return books;
         }
@@ -96,9 +89,10 @@ namespace LibraryInfoSystemLite_NikolaevDV.Pages
             return books;
         }
 
+
         private void GenreFilterList()
         {
-            cb_Genre.Items.Add("< Выберите жанр >");
+            cb_Genre.Items.Add("Все жанры");
 
             foreach (var genre in DB.db.Genre)
                 cb_Genre.Items.Add(genre);
@@ -108,7 +102,7 @@ namespace LibraryInfoSystemLite_NikolaevDV.Pages
 
         private void AuthorFilterList()
         {
-            cb_Author.Items.Add("< Выберите автора >");
+            cb_Author.Items.Add("Все авторы");
 
             foreach (var author in DB.db.Author)
                 cb_Author.Items.Add(author);
@@ -116,20 +110,14 @@ namespace LibraryInfoSystemLite_NikolaevDV.Pages
             cb_Author.SelectedIndex = 0;
         }
 
-        /*private void ShowLbElements()
-        {
-            List<Book> books = GetBook();
-            lb_Book.ItemsSource = books;
-        }*/
-
         private void cb_Genre_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            //ShowLbElements();
+            ShowLbElements();
         }
 
         private void cb_Author_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            //ShowLbElements();
+            ShowLbElements();
         }
 
         private void btn_Choice_Click(object sender, RoutedEventArgs e)

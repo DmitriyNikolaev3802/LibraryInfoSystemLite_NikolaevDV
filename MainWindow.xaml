@@ -24,6 +24,5 @@
         <TextBox x:Name="tbPassword" HorizontalAlignment="Left" Margin="334,130,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="181" Height="24"/>
         <PasswordBox x:Name="pbPassword" PasswordChar="*" HorizontalAlignment="Left" Margin="334,130,0,0" Grid.Row="1" VerticalAlignment="Top" Width="181" Height="24"/>
         <CheckBox x:Name="checkbox_ViewPassword" Content="Показать пароль" HorizontalAlignment="Left" Margin="530,134,0,0" Grid.Row="1" VerticalAlignment="Top" Checked="checkbox_ViewPassword_Checked" Unchecked="checkbox_ViewPassword_Unchecked"/>
-        <Image HorizontalAlignment="Left" Height="307" Margin="122,0,0,0" Grid.Row="1" VerticalAlignment="Top" Width="508" Grid.RowSpan="2"/>
     </Grid>
 </Window>
