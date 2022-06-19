@@ -21,16 +21,37 @@ namespace LibraryInfoSystemLite_NikolaevDV.Pages
     /// </summary>
     public partial class SetBookToUserPage : Page
     {
-        private User _user;
         private Book _book;
+        private User _user;
 
         public SetBookToUserPage(Book book)
         {
             InitializeComponent();
-            //this._user = user;
             this._book = book;
             cb_SetUser.ItemsSource = DB.db.User.ToList();
             cb_SetBook.ItemsSource = DB.db.Book.ToList();
+            UserNoBookList();
+            BookList();
+            DataContext = this;
+        }
+
+        private void UserNoBookList()
+        {
+            foreach (var user in DB.db.User)
+            {
+                if (user.Book1 == null)
+                {
+                    cb_SetUser.Items.Add(user);
+                }
+            }   
+            cb_SetUser.SelectedIndex = 0;
+        }
+
+        private void BookList()
+        {
+            foreach (var book in DB.db.Book)
+                cb_SetBook.Items.Add(book);
+            cb_SetBook.SelectedIndex = 0;
         }
 
         private void btn_Back_Click(object sender, RoutedEventArgs e)
@@ -40,8 +61,13 @@ namespace LibraryInfoSystemLite_NikolaevDV.Pages
 
         private void btn_AddBookToUser_Click(object sender, RoutedEventArgs e)
         {
-            //if (_user.UserID == ) DB.db.User.Add(_book);
-            //DB.db.SaveChanges();
+            //if (_book.BookID == 0) DB.db.User.Add();
+            DB.db.SaveChanges();
+        }
+
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            UserNoBookList();
         }
     }
 }

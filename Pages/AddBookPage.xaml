@@ -22,7 +22,7 @@
         <Label Content="Название книги:" FontSize="14" FontWeight="Bold" HorizontalAlignment="Left" Margin="62,8,0,0" Grid.Row="1" VerticalAlignment="Top" Width="124"/>
         <TextBox x:Name="tb_DescBook"  Text="{Binding Description}"  HorizontalAlignment="Left" Margin="191,43,0,0" Grid.Row="1" TextWrapping="Wrap"  VerticalAlignment="Top" Width="174" Height="23"/>
         <ComboBox x:Name="cb_Annotation" SelectedItem="{Binding Annotation1}" HorizontalAlignment="Left" Margin="487,17,0,0" Grid.Row="1" VerticalAlignment="Top" Width="174"/>
-        <Label Content="Аннотация:" FontSize="14" FontWeight="Bold" HorizontalAlignment="Left" Margin="394,11,0,0" Grid.Row="1" VerticalAlignment="Top" Width="93"/>
+        <Label Content="Аннотация:" FontSize="14" FontWeight="Bold" HorizontalAlignment="Left" Margin="390,11,0,0" Grid.Row="1" VerticalAlignment="Top" Width="93"/>
         <Label Content="Описание книги:" FontSize="14" FontWeight="Bold" HorizontalAlignment="Left" Margin="62,41,0,0" Grid.Row="1" VerticalAlignment="Top" Width="124"/>
         <ComboBox x:Name="cb_Genre" SelectedItem="{Binding Genre1}" HorizontalAlignment="Left" Margin="487,44,0,0" Grid.Row="1" VerticalAlignment="Top" Width="174"/>
         <Label Content="Жанр:" FontSize="14" FontWeight="Bold" HorizontalAlignment="Left" Margin="426,37,0,0" Grid.Row="1" VerticalAlignment="Top" Width="56"/>
@@ -32,7 +32,7 @@
         <Label Content="Том:" FontSize="14" FontWeight="Bold" HorizontalAlignment="Left" Margin="436,64,0,0" Grid.Row="1" VerticalAlignment="Top" Width="48" RenderTransformOrigin="0.5,0.5">
         </Label>
         <TextBox x:Name="tb_tomequan" Text="{Binding TomeQuanity}" HorizontalAlignment="Left" Margin="189,97,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="174" Height="23"/>
-        <Label Content="Количество томов:" FontSize="14" FontWeight="Bold" HorizontalAlignment="Left" Margin="52,96,0,0" Grid.Row="1" VerticalAlignment="Top" Width="132"/>
+        <Label Content="Количество томов:" FontSize="14" FontWeight="Bold" HorizontalAlignment="Left" Margin="43,96,0,0" Grid.Row="1" VerticalAlignment="Top" Width="141"/>
         <Label Content="Тип публикации:" FontSize="14" FontWeight="Bold" HorizontalAlignment="Left" Margin="57,122,0,0" Grid.Row="1" VerticalAlignment="Top" Width="129"/>
         <ComboBox x:Name="cb_Language" SelectedItem="{Binding Language1}" HorizontalAlignment="Left" Margin="487,98,0,0" Grid.Row="1" VerticalAlignment="Top" Width="174"/>
         <Label Content="Язык:" FontSize="14" FontWeight="Bold" HorizontalAlignment="Left" Margin="428,94,0,0" Grid.Row="1" VerticalAlignment="Top" Width="56"/>
